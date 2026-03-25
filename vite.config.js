@@ -3,13 +3,23 @@ import tailwindcss from '@tailwindcss/vite';
 import laravel from 'laravel-vite-plugin'
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
 
-// Set APP_URL if it doesn't exist for Laravel Vite plugin
 if (! process.env.APP_URL) {
-  process.env.APP_URL = 'http://example.test';
+  process.env.APP_URL = 'http://localhost:8080';
 }
 
-export default defineConfig({
-  base: '/app/themes/sage/public/build/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build'
+    ? '/app/themes/sage/public/build/'
+    : '/',
+
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    hmr: {
+      host: 'localhost',
+    },
+  },
+
   plugins: [
     tailwindcss(),
     laravel({
@@ -20,7 +30,6 @@ export default defineConfig({
         'resources/js/editor.js',
       ],
       refresh: true,
-      assets: ['resources/images/**', 'resources/fonts/**'],
     }),
 
     wordpressPlugin(),
@@ -42,4 +51,4 @@ export default defineConfig({
       '@images': '/resources/images',
     },
   },
-})
+}))
