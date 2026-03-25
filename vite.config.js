@@ -9,7 +9,7 @@ if (! process.env.APP_URL) {
 
 export default defineConfig(({ command }) => ({
   base: command === 'build'
-    ? '/app/themes/sage/public/build/'
+    ? '/app/themes/uvalab/public/build/'
     : '/',
 
   server: {
