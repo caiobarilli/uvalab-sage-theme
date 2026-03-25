@@ -24,5 +24,15 @@ class ThemeServiceProvider extends SageServiceProvider
     public function boot()
     {
         parent::boot();
+
+        add_shortcode('livewire', function ($atts) {
+            $atts = shortcode_atts(['component' => ''], $atts);
+
+            if (empty($atts['component'])) {
+                return '';
+            }
+
+            return \Livewire\Livewire::mount($atts['component']);
+        });
     }
 }

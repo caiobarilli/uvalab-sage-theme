@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a41508f24fe32be1c1aa6d9dbff23c2",
+    "content-hash": "73370e06624c075d9f628954c2ad0ac6",
     "packages": [
         {
             "name": "brick/math",
@@ -4182,6 +4182,64 @@
                 }
             ],
             "time": "2026-03-23T14:57:56+00:00"
+        },
+        {
+            "name": "roots/acorn-fse-helper",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roots/acorn-fse-helper.git",
+                "reference": "129640bc40f1bfbaef34ef2e623c922b39a55a0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roots/acorn-fse-helper/zipball/129640bc40f1bfbaef34ef2e623c922b39a55a0e",
+                "reference": "129640bc40f1bfbaef34ef2e623c922b39a55a0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.15",
+                "roots/acorn": "^4.2"
+            },
+            "type": "package",
+            "extra": {
+                "acorn": {
+                    "providers": [
+                        "Roots\\AcornFseHelper\\AcornFseHelperServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Roots\\AcornFseHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brandon Nifong",
+                    "email": "brandon@tendency.me",
+                    "homepage": "https://github.com/log1x"
+                }
+            ],
+            "description": "Bootstrap FSE support in Acorn-based WordPress themes.",
+            "support": {
+                "issues": "https://github.com/roots/acorn-fse-helper/issues",
+                "source": "https://github.com/roots/acorn-fse-helper/tree/v1.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/roots",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-09-26T10:07:56+00:00"
         },
         {
             "name": "roots/support",
