@@ -5,7 +5,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Swiper('.hero-slider', {
+    new Swiper('.slider-hero', {
         modules: [Pagination, Autoplay],
         loop: true,
         autoplay: {

@@ -1,4 +1,4 @@
-<div class="swiper hero-slider w-full bg-gray-100">
+<div class="swiper slider-{{ $type }} w-full bg-gray-100">
     <div class="swiper-wrapper">
         @foreach ($slides as $slide)
             <div class="swiper-slide">
