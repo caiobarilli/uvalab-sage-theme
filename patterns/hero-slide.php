@@ -30,9 +30,9 @@
 
             <!-- wp:buttons -->
             <div class="wp-block-buttons">
-                <!-- wp:button {"className":"slide-button","style":{"color":{"background":"#7a1c2e","text":"#ffffff"}}} -->
-                <div class="wp-block-button slide-button">
-                    <a class="wp-block-button__link has-text-color has-background wp-element-button" href="/shop">Discover Collection</a>
+                <!-- wp:button {"style":{"color":{"background":"#7a1c2e","text":"#ffffff"}}} -->
+                <div class="wp-block-button">
+                    <a class="wp-block-button__link has-text-color has-background wp-element-button" href="/shop" style="color:#ffffff;background-color:#7a1c2e">Discover Collection</a>
                 </div>
                 <!-- /wp:button -->
             </div>
