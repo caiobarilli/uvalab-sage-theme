@@ -13,8 +13,8 @@ class ThemeOptions extends Composer
     public function with(): array
     {
         return [
-            'siteName' => get_bloginfo('name', 'display'),
-            'adminUrl' => admin_url(),
+            // 'siteName' => get_bloginfo('name', 'display'),
+            // 'adminUrl' => admin_url(),
         ];
     }
 }
