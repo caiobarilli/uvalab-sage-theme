@@ -10,9 +10,14 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
-                <flux:sidebar.item icon="home" href="/uvalab-admin" current>Theme</flux:sidebar.item>
+                <flux:sidebar.item icon="home" href="/uvalab-admin" current>
+                    Theme
+                </flux:sidebar.item>
+
                 <flux:sidebar.group expandable icon="star" heading="Sliders" class="grid">
-                    <flux:sidebar.item href="#">HeroSlide</flux:sidebar.item>
+                    <flux:sidebar.item href="{{ admin_url('edit.php?post_type=hero_slide') }}" target="_parent">
+                        Hero Slides
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
