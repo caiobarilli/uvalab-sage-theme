@@ -23,7 +23,6 @@
         @include('sections.header')
 
         <main id="main" class="main">
-
             <flux:button variant="primary" color="zinc">Zinc</flux:button>
             <flux:button variant="primary" color="red">Red</flux:button>
             <flux:button variant="primary" color="orange">Orange</flux:button>
@@ -43,9 +42,7 @@
             <flux:button variant="primary" color="pink">Pink</flux:button>
             <flux:button variant="primary" color="rose">Rose</flux:button>
 
-
             <livewire:quote />
-
 
             @yield('content')
         </main>

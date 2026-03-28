@@ -36,6 +36,10 @@ Application::configure()
     ->withProviders([
         ThemeServiceProvider::class,
     ])
+    ->withRouting(
+        wordpress: true,
+        web: __DIR__.'/routes/web.php',
+    )
     ->boot();
 
 /*
