@@ -24,5 +24,8 @@ Route::group(['as' => 'auth.'], function () {
 });
 
 Route::group(['as' => 'customer.'], function () {
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get(
+        parse_url(wc_get_page_permalink('myaccount'), PHP_URL_PATH),
+        Dashboard::class
+    )->name('account');
 });

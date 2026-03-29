@@ -14,7 +14,7 @@ class CustomerMiddleware
             $user = wp_get_current_user();
 
             if (in_array('subscriber', (array) $user->roles)) {
-                wp_redirect('/dashboard');
+                wp_redirect(wc_get_page_permalink('myaccount'));
                 exit;
             }
         });

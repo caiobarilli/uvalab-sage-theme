@@ -48,7 +48,7 @@ class Register extends Component
         wp_set_current_user($userId);
         wp_set_auth_cookie($userId, true);
 
-        $this->redirect('/dashboard');
+        $this->redirect(wc_get_page_permalink('myaccount'));
     }
 
     public function render()
