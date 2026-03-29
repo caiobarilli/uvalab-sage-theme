@@ -28,6 +28,7 @@ export default defineConfig(({ command }) => ({
         'resources/js/app.js',
         'resources/css/editor.css',
         'resources/js/editor.js',
+        'resources/images/auth-bg.png',
         'resources/images/uva-logo.png',
         'resources/images/uva.svg',
       ],
