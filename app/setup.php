@@ -161,3 +161,17 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+/**
+ * Denny WooCommerce store pages only and private link options to prevent redirect loops when the coming soon mode is enabled.
+ */
+add_filter('pre_option_woocommerce_store_pages_only', function () {
+    return 'no';
+});
+
+/**
+ * Denny WooCommerce private link option to prevent redirect loops when the coming soon mode is enabled.
+ */
+add_filter('pre_option_woocommerce_private_link', function () {
+    return 'no';
+});
