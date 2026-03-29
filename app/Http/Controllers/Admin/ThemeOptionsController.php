@@ -9,7 +9,8 @@ class ThemeOptionsController extends Controller
     public function index()
     {
         if (! current_user_can('manage_options')) {
-            abort(403);
+            wp_redirect(wp_login_url());
+            exit;
         }
 
         return view('admin.theme-options');
@@ -18,7 +19,8 @@ class ThemeOptionsController extends Controller
     public function heroSlider()
     {
         if (! current_user_can('manage_options')) {
-            abort(403);
+            wp_redirect(wp_login_url());
+            exit;
         }
 
         return view('admin.sliders.hero');

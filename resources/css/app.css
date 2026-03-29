@@ -28,11 +28,3 @@
     --color-accent-content: var(--color-gray-800);
     --color-accent-foreground: var(--color-white);
 }
-
-@layer theme {
-    .dark {
-        --color-accent: var(--color-white);
-        --color-accent-content: var(--color-white);
-        --color-accent-foreground: var(--color-gray-800);
-    }
-}
