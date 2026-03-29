@@ -1,5 +1,8 @@
 <?php
 
+use App\Providers\AdminMenuServiceProvider;
+use App\Providers\PostTypesServiceProvider;
+use App\Providers\ShortcodesServiceProvider;
 use App\Providers\ThemeServiceProvider;
 use Roots\Acorn\Application;
 
@@ -35,6 +38,9 @@ require $composer;
 Application::configure()
     ->withProviders([
         ThemeServiceProvider::class,
+        AdminMenuServiceProvider::class,
+        PostTypesServiceProvider::class,
+        ShortcodesServiceProvider::class,
     ])
     ->withRouting(
         wordpress: true,
