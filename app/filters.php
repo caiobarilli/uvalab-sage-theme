@@ -21,10 +21,9 @@ add_filter('template_include', function ($template) {
     }
 
     $coming_soon = get_option('woocommerce_coming_soon');
-    $logged_in = is_user_logged_in();
     $is_admin = current_user_can('manage_options');
 
-    if ($coming_soon === 'yes' && ! $logged_in && ! $is_admin) {
+    if ($coming_soon === 'yes' && ! $is_admin) {
         wp_redirect(home_url('/coming-soon'));
         exit;
     }
