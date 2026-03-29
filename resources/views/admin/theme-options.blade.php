@@ -59,13 +59,15 @@
                     <flux:callout icon="check-circle" variant="success" inline>
                         <flux:callout.heading>My Account page is using Uvalab</flux:callout.heading>
                         <flux:callout.text>The page "{{ $myaccount_page->post_title }}" is using
-                            <code>[uvalab_my_account]</code>.</flux:callout.text>
+                            <code>[uvalab_my_account]</code>.
+                        </flux:callout.text>
                     </flux:callout>
                 @elseif($uses_woo)
                     <flux:callout icon="exclamation-triangle" variant="warning" inline>
                         <flux:callout.heading>My Account page is using WooCommerce default</flux:callout.heading>
                         <flux:callout.text>Replace <code>[woocommerce_my_account]</code> with
-                            <code>[uvalab_my_account]</code> in the My Account page.</flux:callout.text>
+                            <code>[uvalab_my_account]</code> in the My Account page.
+                        </flux:callout.text>
                         <x-slot name="actions">
                             <flux:button href="{{ admin_url('post.php?post=' . $myaccount_page_id . '&action=edit') }}"
                                 target="_parent">
@@ -88,9 +90,16 @@
             @else
                 <flux:callout icon="exclamation-triangle" variant="danger" inline>
                     <flux:callout.heading>My Account page not found</flux:callout.heading>
-                    <flux:callout.text>WooCommerce My Account page is not configured.</flux:callout.text>
+                    <flux:callout.text>WooCommerce My Account page is not configured. Set it up in WooCommerce Advanced
+                        settings.</flux:callout.text>
+                    <x-slot name="actions">
+                        <flux:button href="{{ admin_url('admin.php?page=wc-settings&tab=advanced') }}" target="_parent">
+                            Configure My Account page
+                        </flux:button>
+                    </x-slot>
                 </flux:callout>
             @endif
+
         </div>
 
         <flux:separator variant="subtle" class="my-6" />
