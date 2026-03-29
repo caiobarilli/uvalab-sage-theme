@@ -18,6 +18,8 @@ class SystemStatus extends Component
 
     public ?string $myaccountContent = null;
 
+    public bool $permalinkOk = false;
+
     public function mount(): void
     {
         $this->wooInstalled = function_exists('WC');
@@ -31,6 +33,8 @@ class SystemStatus extends Component
             $this->myaccountTitle = $page?->post_title;
             $this->myaccountContent = $page?->post_content;
         }
+
+        $this->permalinkOk = get_option('permalink_structure') === '/%postname%/';
     }
 
     public function render()

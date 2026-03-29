@@ -2,6 +2,24 @@
     <flux:heading size="lg" class="mb-4">{{ __('Theme Status', 'sage') }}</flux:heading>
 
     <div class="space-y-3">
+        @if ($permalinkOk)
+            <flux:callout icon="check-circle" variant="success" inline>
+                <flux:callout.heading>{{ __('Permalink structure is correct', 'sage') }}</flux:callout.heading>
+                <flux:callout.text>{{ __('Permalink is set to Post name (/%postname%/).', 'sage') }}</flux:callout.text>
+            </flux:callout>
+        @else
+            <flux:callout icon="exclamation-triangle" variant="danger" inline>
+                <flux:callout.heading>{{ __('Permalink structure is incorrect', 'sage') }}</flux:callout.heading>
+                <flux:callout.text>
+                    {{ __('Set permalink structure to Post name (/%postname%/) for routes to work correctly.', 'sage') }}
+                </flux:callout.text>
+                <x-slot name="actions">
+                    <flux:button href="{{ admin_url('options-permalink.php') }}" target="_parent">
+                        {{ __('Configure Permalinks', 'sage') }}
+                    </flux:button>
+                </x-slot>
+            </flux:callout>
+        @endif
 
         @if ($wooInstalled)
             <flux:callout icon="check-circle" variant="success" inline>
