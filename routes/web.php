@@ -27,8 +27,12 @@ Route::group(['as' => 'auth.'], function () {
 });
 
 Route::group(['as' => 'customer.'], function () {
-    Route::get(
-        parse_url(wc_get_page_permalink('myaccount'), PHP_URL_PATH),
-        Dashboard::class
-    )->name('account');
+    if (function_exists('wc_get_page_permalink')) {
+        Route::get(
+            parse_url(wc_get_page_permalink('myaccount'), PHP_URL_PATH),
+            Dashboard::class
+        )->name('account');
+    } else {
+        Route::get('/my-account', Dashboard::class)->name('account');
+    }
 });
