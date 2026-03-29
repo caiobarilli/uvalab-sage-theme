@@ -39,6 +39,26 @@
             </flux:callout>
         @endif
 
+        @if ($wooInstalled && $productCount === 0)
+            <flux:callout icon="exclamation-triangle" variant="warning" inline>
+                <flux:callout.heading>{{ __('No products found', 'sage') }}</flux:callout.heading>
+                <flux:callout.text>
+                    {{ __('Your store has no products. Import the sample products to get started.', 'sage') }}
+                </flux:callout.text>
+                <x-slot name="actions">
+                    <flux:button href="{{ get_stylesheet_directory_uri() }}/resources/files/sample_products.csv"
+                        target="_blank">
+                        {{ __('Download sample_products.csv', 'sage') }}
+                    </flux:button>
+                    <flux:button
+                        href="http://localhost:8080/wp/wp-admin/edit.php?post_type=product&page=product_importer&wc_onboarding_active_task=products"
+                        target="_parent">
+                        {{ __('Import Products', 'sage') }}
+                    </flux:button>
+                </x-slot>
+            </flux:callout>
+        @endif
+
         @if ($comingSoon)
             <flux:callout icon="exclamation-triangle" variant="warning" inline>
                 <flux:callout.heading>{{ __('Store is in Coming Soon mode', 'sage') }}</flux:callout.heading>

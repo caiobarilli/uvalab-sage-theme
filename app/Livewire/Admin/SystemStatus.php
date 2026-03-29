@@ -20,11 +20,18 @@ class SystemStatus extends Component
 
     public bool $permalinkOk = false;
 
+    public int $productCount = 0;
+
     public function mount(): void
     {
         $this->wooInstalled = function_exists('WC');
         $this->wooVersion = $this->wooInstalled ? WC()->version : '';
         $this->comingSoon = get_option('woocommerce_coming_soon') === 'yes';
+
+        if ($this->wooInstalled) {
+            $counts = wp_count_posts('product');
+            $this->productCount = (int) ($counts->publish ?? 0);
+        }
 
         $this->myaccountPageId = get_option('woocommerce_myaccount_page_id') ?: null;
 
