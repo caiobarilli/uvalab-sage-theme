@@ -2,7 +2,7 @@
 
 @section('content')
     <flux:main>
-        <flux:heading size="xl">UvaLab Options</flux:heading>
+        <flux:heading size="xl">Theme Options</flux:heading>
         <flux:text class="mt-2 mb-6">Theme status and configuration overview.</flux:text>
         <flux:separator variant="subtle" class="my-6" />
 
