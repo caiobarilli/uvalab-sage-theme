@@ -25,6 +25,24 @@ require $composer;
 
 /*
 |--------------------------------------------------------------------------
+| WooCommerce Requirement Check
+|--------------------------------------------------------------------------
+*/
+
+add_action('admin_notices', function () {
+    if (! function_exists('WC')) {
+        $install_url = admin_url('plugin-install.php?s=woocommerce&tab=search&type=term');
+        echo '<div class="notice notice-error"><p>';
+        echo sprintf(
+            __('⚠️ <strong>Uvalab Sage Theme</strong> requires WooCommerce to run. <a href="%s">Install WooCommerce</a> to get started.', 'sage'),
+            esc_url($install_url)
+        );
+        echo '</p></div>';
+    }
+});
+
+/*
+|--------------------------------------------------------------------------
 | Register The Bootloader
 |--------------------------------------------------------------------------
 |

@@ -1,7 +1,7 @@
 /*
 Theme Name:         Uvalab Sage Theme
 Theme URI:          https://github.com/caiobarilli/uvalab-sage-theme
-Description:        Uvalab Sage Theme is a custom WordPress theme built using the Sage starter theme.
+Description:        Uvalab Sage Theme is a custom WordPress theme built using the Sage starter theme with WooCommerce support.
 Version:            1.1.0
 Author:             Caio
 Author URI:         https://github.com/caiobarilli/
@@ -10,4 +10,6 @@ License:            MIT License
 License URI:        https://opensource.org/licenses/MIT
 Requires PHP:       8.2
 Requires at least:  6.6
+WC requires at least: 8.0
+WC tested up to:    9.0
 */
