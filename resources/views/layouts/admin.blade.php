@@ -8,10 +8,8 @@
     @livewireStyles
 </head>
 
-<body>
-    <div id="admin-app">
-
-
+<body class="overflow-hidden">
+    <div class="h-screen mt-4">
         <flux:sidebar sticky collapsible class="bg-zinc-50  border-r border-zinc-200  ">
             <flux:sidebar.header>
                 <flux:sidebar.brand href="#" logo="{{ Vite::asset('resources/images/uva-logo.png') }}"
@@ -31,14 +29,6 @@
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
-
-            <flux:sidebar.spacer />
-
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="cog-6-tooth" href="#">Settings</flux:sidebar.item>
-                <flux:sidebar.item icon="information-circle" href="#">Help</flux:sidebar.item>
-            </flux:sidebar.nav>
-
         </flux:sidebar>
 
         <flux:header class="lg:hidden">
