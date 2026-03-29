@@ -69,7 +69,7 @@ composer create-project roots/bedrock . --prefer-dist
 
 ### 3. Install the theme
 ```bash
-cd /var/www/html/web/app/themes -> uvalab*
+cd /var/www/html/web/app/themes → uvalab
 ```
 
 ### 4. Install PHP dependencies
