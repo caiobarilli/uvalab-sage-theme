@@ -19,12 +19,12 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
-                <flux:sidebar.item icon="home" href="/uvalab-admin" current>
+                <flux:sidebar.item icon="home" href="/uvalab-admin">
                     Theme
                 </flux:sidebar.item>
 
                 <flux:sidebar.group expandable icon="star" heading="Sliders" class="grid">
-                    <flux:sidebar.item href="{{ admin_url('edit.php?post_type=hero_slide') }}" target="_parent">
+                    <flux:sidebar.item href="/uvalab-admin/sliders/hero">
                         Hero Slides
                     </flux:sidebar.item>
                 </flux:sidebar.group>
