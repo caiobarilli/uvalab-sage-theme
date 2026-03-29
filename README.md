@@ -202,6 +202,33 @@ Block templates are located in `templates/`. Blade directives are available via 
 
 ## Useful Commands
 
+### Wipe all data and start fresh
+```bash
+
+# 1. Wipe
+wp acorn db:wipe
+
+# 2. Recriar tabelas do WordPress
+wp core install --url="http://localhost:8080" --title="wordpress" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wordpress@wordpress.com" --skip-email
+
+# 3. Ativar tema
+wp theme activate uvalab
+
+# 4. Ativar WooCommerce
+wp plugin activate woocommerce
+wp option update woocommerce_onboarding_profile '{"skipped":true}' --format=json
+wp option update woocommerce_coming_soon no
+
+# 6. Permalinks
+wp rewrite structure '/%postname%/' --hard
+
+# Rodar Seed
+wp acorn db:seed
+
+# 6. Limpar cache
+wp acorn optimize:clear
+
+```
 ### Composer
 ```bash
 composer install
