@@ -21,16 +21,6 @@ class ThemeOptionsController extends Controller
             abort(403);
         }
 
-        $query = new \WP_Query([
-            'post_type' => 'hero_slide',
-            'posts_per_page' => -1,
-            'orderby' => 'menu_order',
-            'order' => 'ASC',
-            'post_status' => ['publish', 'draft'],
-        ]);
-
-        return view('admin.sliders.hero', [
-            'slides' => $query->posts,
-        ]);
+        return view('admin.sliders.hero');
     }
 }

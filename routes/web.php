@@ -2,5 +2,10 @@
 
 use App\Http\Controllers\Admin\ThemeOptionsController;
 
-Route::get('/uvalab-admin', [ThemeOptionsController::class, 'index']);
-Route::get('/uvalab-admin/sliders/hero', [ThemeOptionsController::class, 'heroSlider']);
+Route::group(['prefix' => 'uvalab-admin', 'as' => 'uvalab.'], function () {
+    Route::get('/', [ThemeOptionsController::class, 'index'])->name('index');
+
+    Route::group(['prefix' => 'sliders', 'as' => 'sliders.'], function () {
+        Route::get('/hero', [ThemeOptionsController::class, 'heroSlider'])->name('hero');
+    });
+});
