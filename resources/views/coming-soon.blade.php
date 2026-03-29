@@ -19,10 +19,10 @@
             <div class="flex min-h-[60vh] flex-col items-center justify-center text-center px-4">
                 <img src="{{ Vite::asset('resources/images/uva-logo.png') }}" alt="Uvalab" class="h-16 mb-8 opacity-80">
 
-                <flux:heading size="xl" class="mb-4">We're coming soon</flux:heading>
+                <flux:heading size="xl" class="mb-4">{{ __('We\'re coming soon', 'sage') }}</flux:heading>
 
                 <flux:text class="max-w-md mb-8">
-                    Our store is currently under construction. We'll be back soon with something amazing.
+                    {{ __('Our store is currently under construction. We\'ll be back soon with something amazing.', 'sage') }}
                 </flux:text>
             </div>
         </main>

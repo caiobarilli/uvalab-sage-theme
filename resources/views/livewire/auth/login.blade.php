@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-6">
-    <flux:heading class="text-center" size="xl">Welcome back</flux:heading>
+    <flux:heading class="text-center" size="xl">{{ __('Welcome back', 'sage') }}</flux:heading>
 
     <flux:separator />
 
@@ -13,17 +13,17 @@
         <flux:input wire:model="login" label="Username or Email" type="text" placeholder="your@email.com" />
 
         <flux:field>
-            <flux:label>Password</flux:label>
+            <flux:label>{{ __('Password', 'sage') }}</flux:label>
             <flux:input wire:model="password" type="password" placeholder="Your password" />
         </flux:field>
 
         <flux:button variant="primary" class="w-full" wire:click="submit">
-            Log in
+            {{ __('Log in', 'sage') }}
         </flux:button>
     </div>
 
     <flux:subheading class="text-center">
-        Don't have an account?
-        <flux:link href="/register">Sign up for free</flux:link>
+        {{ __('Don\'t have an account?', 'sage') }}
+        <flux:link href="/register">{{ __('Sign up for free', 'sage') }}</flux:link>
     </flux:subheading>
 </div>

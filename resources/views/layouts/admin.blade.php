@@ -20,12 +20,12 @@
 
             <flux:sidebar.nav>
                 <flux:sidebar.item icon="home" href="/uvalab-admin">
-                    Theme
+                    {{ __('Theme', 'sage') }}
                 </flux:sidebar.item>
 
                 <flux:sidebar.group expandable icon="star" heading="Sliders" class="grid">
                     <flux:sidebar.item href="/uvalab-admin/sliders/hero">
-                        Hero Slides
+                        {{ __('Hero Slides', 'sage') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>

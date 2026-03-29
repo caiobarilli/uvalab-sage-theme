@@ -11,10 +11,10 @@ class PostTypesServiceProvider extends ServiceProvider
         add_action('init', function () {
             register_post_type('hero_slide', [
                 'labels' => [
-                    'name' => 'Hero Slides',
-                    'singular_name' => 'Hero Slide',
-                    'add_new_item' => 'Add New Slide',
-                    'edit_item' => 'Edit Slide',
+                    'name' => __('Hero Slides', 'sage'),
+                    'singular_name' => __('Hero Slide', 'sage'),
+                    'add_new_item' => __('Add New Slide', 'sage'),
+                    'edit_item' => __('Edit Slide', 'sage'),
                 ],
                 'public' => false,
                 'show_ui' => true,

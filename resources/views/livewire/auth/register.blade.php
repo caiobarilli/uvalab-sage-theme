@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-6">
-    <flux:heading class="text-center" size="xl">Create an account</flux:heading>
+    <flux:heading class="text-center" size="xl">{{ __('Create an account', 'sage') }}</flux:heading>
 
     <flux:separator />
 
@@ -17,12 +17,12 @@
         <flux:input wire:model="password" label="Password" type="password" placeholder="Min. 6 characters" />
 
         <flux:button variant="primary" class="w-full" wire:click="submit">
-            Create account
+            {{ __('Create account', 'sage') }}
         </flux:button>
     </div>
 
     <flux:subheading class="text-center">
-        Already have an account?
-        <flux:link href="/login">Log in</flux:link>
+        {{ __('Already have an account?', 'sage') }}
+        <flux:link href="/login">{{ __('Log in', 'sage') }}</flux:link>
     </flux:subheading>
 </div>

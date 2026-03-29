@@ -23,7 +23,7 @@
 
         <main id="main" class="main">
             @if (is_user_logged_in())
-                <flux:button href="/logout" variant="primary" color="zinc">Logout</flux:button>
+                <flux:button href="/logout" variant="primary" color="zinc">{{ __('Logout', 'sage') }}</flux:button>
             @endif
 
             @yield('content')
