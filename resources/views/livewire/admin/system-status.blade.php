@@ -1,5 +1,5 @@
 <div>
-    <flux:heading size="lg" class="mb-4">System Status</flux:heading>
+    <flux:heading size="lg" class="mb-4">Theme Status</flux:heading>
 
     <div class="space-y-3">
 

@@ -1,7 +1,7 @@
 <div class="space-y-4">
     <div class="flex items-center justify-between">
         <div>
-            <flux:heading size="lg">Acorn Cache</flux:heading>
+            <flux:heading size="lg">Cache</flux:heading>
             <flux:text>Clear all compiled Acorn/Laravel cache files.</flux:text>
         </div>
         <flux:button wire:click="clear" wire:loading.attr="disabled" icon="trash">
