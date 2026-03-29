@@ -13,5 +13,9 @@
         <livewire:admin.acorn-cache />
 
         <flux:separator variant="subtle" class="my-6" />
+
+        <livewire:admin.seeder />
+
+        <flux:separator variant="subtle" class="my-6" />
     </flux:main>
 @endsection
