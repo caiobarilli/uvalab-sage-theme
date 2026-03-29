@@ -8,8 +8,8 @@
     @livewireStyles
 </head>
 
-<body class="overflow-hidden">
-    <div class="h-screen mt-4">
+<body>
+    <div class="mt-4">
         <flux:sidebar sticky collapsible class="bg-zinc-50  border-r border-zinc-200  ">
             <flux:sidebar.header>
                 <flux:sidebar.brand href="#" logo="{{ Vite::asset('resources/images/uva-logo.png') }}"
@@ -41,6 +41,24 @@
 
     @livewireScripts
     @fluxScripts
+
+    <script>
+        function uvaSendHeight() {
+            var h = document.documentElement.scrollHeight;
+            window.parent.postMessage({
+                type: 'uvalab-iframe-height',
+                height: h
+            }, '*');
+        }
+
+        var uvaObserver = new ResizeObserver(uvaSendHeight);
+        uvaObserver.observe(document.documentElement);
+
+        document.addEventListener('DOMContentLoaded', uvaSendHeight);
+
+        document.addEventListener('livewire:navigated', uvaSendHeight);
+        document.addEventListener('livewire:updated', uvaSendHeight);
+    </script>
 </body>
 
 </html>
