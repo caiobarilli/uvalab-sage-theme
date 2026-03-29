@@ -11,22 +11,20 @@
     @livewireStyles
 </head>
 
-<body @php(body_class())>
+<body class="bg-zinc-200 h-full">
     @php(wp_body_open())
 
-    <div id="app">
-        <main id="main" class="main">
-            <div class="flex min-h-[60vh] flex-col items-center justify-center text-center px-4">
-                <img src="{{ Vite::asset('resources/images/uva-logo.png') }}" alt="Uvalab" class="h-16 mb-8 opacity-80">
+    <main>
+        <div class="flex min-h-[60vh] flex-col items-center justify-center text-center px-4">
+            <img src="{{ Vite::asset('resources/images/uva.svg') }}" alt="Uvalab" class="h-16 mb-8 opacity-80">
 
-                <flux:heading size="xl" class="mb-4">{{ __('We\'re coming soon', 'sage') }}</flux:heading>
+            <flux:heading size="xl" class="mb-4">{{ __('We\'re coming soon', 'sage') }}</flux:heading>
 
-                <flux:text class="max-w-md mb-8">
-                    {{ __('Our store is currently under construction. We\'ll be back soon with something amazing.', 'sage') }}
-                </flux:text>
-            </div>
-        </main>
-    </div>
+            <flux:text class="max-w-md mb-8">
+                {{ __('Our store is currently under construction. We\'ll be back soon with something amazing.', 'sage') }}
+            </flux:text>
+        </div>
+    </main>
 
     @php(do_action('get_footer'))
     @php(wp_footer())
