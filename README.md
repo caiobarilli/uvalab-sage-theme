@@ -117,6 +117,7 @@ wp acorn db:seed
 
 ## Admin Panel
 
+
 The theme registers a custom **UvaLab** menu in the WordPress admin panel, powered by Flux UI via iframe routing.
 
 Access at: `http://localhost:8080/wp-admin/admin.php?page=uvalab-options`
@@ -127,6 +128,34 @@ Access at: `http://localhost:8080/wp-admin/admin.php?page=uvalab-options`
 |---|---|
 | Dashboard | `/uvalab-admin` |
 | Hero Slides | `/uvalab-admin/sliders/hero` |
+
+---
+
+## Authentication
+
+The theme includes a custom authentication system built with Livewire and Flux UI, replacing the default WooCommerce My Account page.
+
+### Routes
+
+| Route | Description |
+|---|---|
+| `/login` | Customer login |
+| `/register` | Customer registration |
+| `/logout` | Ends the session |
+| `/my-account` | Customer dashboard (requires login) |
+
+### WooCommerce My Account
+
+Replace the default `[woocommerce_my_account]` shortcode with:
+```
+[uvalab_my_account]
+```
+
+Edit the **My Account** page in WordPress admin and swap the shortcode to use the custom Livewire-powered dashboard.
+
+### Middleware
+
+`CustomerMiddleware` blocks users with the `subscriber` role from accessing `wp-admin`, redirecting them to the WooCommerce My Account page.
 
 ---
 
