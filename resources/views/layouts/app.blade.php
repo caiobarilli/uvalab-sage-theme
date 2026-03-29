@@ -24,27 +24,7 @@
         <main id="main" class="main">
             @if (is_user_logged_in())
                 <flux:button href="/logout" variant="primary" color="zinc">Logout</flux:button>
-                <flux:button href="/logout" variant="ghost">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="red">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="orange">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="amber">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="yellow">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="lime">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="green">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="emerald">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="teal">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="cyan">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="sky">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="blue">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="indigo">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="violet">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="purple">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="fuchsia">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="pink">Logout</flux:button>
-                <flux:button href="/logout" variant="primary" color="rose">Logout</flux:button>
             @endif
-
-            <livewire:quote />
 
             @yield('content')
         </main>

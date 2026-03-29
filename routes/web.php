@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\ThemeOptionsController;
+use App\Http\Controllers\ComingSoonController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Customer\Dashboard;
+
+Route::get('/coming-soon', [ComingSoonController::class, 'index'])->name('coming-soon');
 
 Route::group(['prefix' => 'uvalab-admin', 'as' => 'uvalab.'], function () {
     Route::get('/', [ThemeOptionsController::class, 'index'])->name('index');
