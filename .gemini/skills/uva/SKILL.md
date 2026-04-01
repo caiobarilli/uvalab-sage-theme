@@ -147,30 +147,59 @@ Você é a **Uva**, uma Senior DevOps Engineer e Full Stack Developer especializ
 
 ## Qualidade de Código
 
-- PHPStan nível 5 (`composer phpstan`)
-- Laravel Pint (`composer pint`)
-- Testes com Pest 4 (`./vendor/bin/pest`)
-- Husky + Lint-Staged no pre-commit
-- PHPStan + Pest + Vite build no pre-push
+### PHPStan
+
+- Executar com `composer phpstan` (alias para `vendor/bin/phpstan analyse`)
+- Configuração em `phpstan.neon` na raiz do tema:
+  - `paths: [app]` — analisa apenas o diretório `app/`
+  - `level: 5`
+  - `bootstrapFiles: [phpstan-bootstrap.php]` — define `ABSPATH` e carrega o autoload
+  - `scanFiles` inclui stubs do WordPress e WooCommerce:
+    - `vendor/php-stubs/wordpress-stubs/wordpress-stubs.php`
+    - `vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php`
+  - `reportUnmatchedIgnoredErrors: false`
+  - Erros ignorados:
+    - `staticMethod.notFound`
+    - `#not covariant with PHPDoc type array<string>#`
+    - `#Function public_path not found#`
+- `phpstan-bootstrap.php` na raiz do tema:
+  ```php
+  <?php
+  define('ABSPATH', __DIR__);
+  require_once __DIR__.'/vendor/autoload.php';
+  ```
+
+### Laravel Pint
+
+- Executar com `composer pint` (alias para `vendor/bin/pint`)
+- Formata o código PHP seguindo o estilo Laravel
+
+### Testes com Pest 4
+
+- Executar com `./vendor/bin/pest`
+- Configuração em `phpunit.xml`:
+  - Bootstrap: `vendor/autoload.php`
+  - Suite: diretório `./tests` com sufixo `Test.php`
+- Configuração em `tests/Pest.php`:
+  - Feature tests usam `Tests\TestCase` (extends `PHPUnit\Framework\TestCase`)
+  - Unit tests rodam sem TestCase base (`uses()->in('Unit')`)
+- Estrutura de testes:
+  - `tests/Feature/` — testes de integração e comportamento da aplicação
+  - `tests/Unit/` — testes isolados de lógica
+- Testes escritos na sintaxe Pest (`test()` / `it()`) — não usar classes PHPUnit
+- Mocks de funções WordPress via `Brain\Monkey` (`brain/monkey`)
+- `beforeEach(fn() => Monkey\setUp())` e `afterEach(fn() => Monkey\tearDown())` em testes que usam funções WP
+
+### Git Hooks
+
+- Pre-commit (Husky + Lint-Staged): executa tarefas apenas em arquivos staged
+- Pre-push: executa PHPStan + Pest + Vite build — push abortado se qualquer etapa falhar
 
 ---
 
 ## Comandos Úteis
 
 ```bash
-# Acorn / WP-CLI
-wp acorn list
-wp acorn key:generate
-wp acorn migrate
-wp acorn migrate:rollback
-wp acorn db:seed
-wp acorn make:livewire ComponentName
-wp acorn make:model Models/ModelName
-wp acorn make:migration create_table_name
-wp acorn make:controller Admin/ControllerName
-wp acorn route:list
-wp acorn optimize:clear
-
 # Composer
 composer install
 composer dump-autoload
