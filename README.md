@@ -200,6 +200,77 @@ Block templates are located in `templates/`. Blade directives are available via 
 
 ---
 
+## 🧪 Code Quality
+
+This project uses **PHPStan**, **Husky**, and **Lint-Staged** to ensure code quality and prevent bad commits.
+
+### PHPStan
+
+Run static analysis:
+
+```bash
+  composer phpstan
+```
+
+> ⚠️ WordPress and Flux methods may be ignored via `phpstan.neon` when not resolvable by static analysis.
+
+---
+
+## 🪝 Git Hooks (Husky + Lint-Staged)
+
+Pre-commit hooks are configured to automatically run checks before each commit.
+
+### What runs on commit
+
+- Lint-staged executes tasks only on staged files
+- Prevents commits if any task fails
+
+### Install hooks (if needed)
+
+```bash
+  npm install
+  npx husky install
+```
+
+### Lint-Staged behavior
+
+If no staged files match configured patterns, commit proceeds normally.
+
+---
+
+## 📦 Available Scripts
+
+```bash
+  npm run build
+  npm run dev
+  npm run lint
+```
+
+> ⚠️ No `npm test` script is defined by default.
+
+---
+
+## ⚠️ Husky v10 Notice
+
+Remove deprecated lines from `.husky/pre-commit` if upgrading:
+
+```bash
+  #!/usr/bin/env sh
+  . "$(dirname -- "$0")/_/husky.sh"
+```
+
+---
+
+## 🧠 PHPStan Notes
+
+- WordPress functions are supported via `wordpress-stubs`
+- WooCommerce functions via `woocommerce-stubs`
+- Some dynamic APIs (e.g. Flux UI) may require:
+  - stubs **or**
+  - targeted ignores in `phpstan.neon`
+
+---
+
 ## Useful Commands
 
 ### Composer
