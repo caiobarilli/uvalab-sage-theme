@@ -10,18 +10,18 @@
 
 ## Stack
 
-| Technology | Version |
-|---|---|
-| PHP | >= 8.2 |
-| Sage | 11 |
-| Acorn | ^5.1 (Laravel 12) |
-| Livewire | ^4.2 |
-| Flux UI | ^2.13 |
-| Acorn FSE Helper | ^1.0 |
-| Tailwind CSS | ^4.0 |
-| Vite | ^8.0 |
-| Swiper | ^12.0 |
-| Node.js | >= 20.0.0 |
+| Technology       | Version           |
+| ---------------- | ----------------- |
+| PHP              | >= 8.2            |
+| Sage             | 11                |
+| Acorn            | ^5.1 (Laravel 12) |
+| Livewire         | ^4.2              |
+| Flux UI          | ^2.13             |
+| Acorn FSE Helper | ^1.0              |
+| Tailwind CSS     | ^4.0              |
+| Vite             | ^8.0              |
+| Swiper           | ^12.0             |
+| Node.js          | >= 20.0.0         |
 
 ---
 
@@ -44,12 +44,12 @@ This theme is designed to run inside the Docker environment provisioned by:
 
 **[caiobarilli/terraform-bedrock](https://github.com/caiobarilli/terraform-bedrock)**
 
-| Container | Role |
-|---|---|
-| `bedrock-nginx` | Web server |
-| `bedrock-php` | PHP-FPM + WordPress + Composer + WP-CLI |
-| `bedrock-mysql` | Database |
-| `bedrock-node` | Vite + npm build |
+| Container       | Role                                    |
+| --------------- | --------------------------------------- |
+| `bedrock-nginx` | Web server                              |
+| `bedrock-php`   | PHP-FPM + WordPress + Composer + WP-CLI |
+| `bedrock-mysql` | Database                                |
+| `bedrock-node`  | Vite + npm build                        |
 
 > The theme also works on a standard WordPress installation without Bedrock.
 
@@ -62,23 +62,27 @@ This theme is designed to run inside the Docker environment provisioned by:
 Follow the instructions at [terraform-bedrock](https://github.com/caiobarilli/terraform-bedrock) to spin up the Docker environment.
 
 ### 2. Install Bedrock
+
 ```bash
 docker exec -it bedrock-php bash
 composer create-project roots/bedrock . --prefer-dist
 ```
 
 ### 3. Install the theme
+
 ```bash
 cd /var/www/html/web/app/themes → uvalab
 ```
 
 ### 4. Install PHP dependencies
+
 ```bash
 cd uvalab
 composer install
 ```
 
 ### 5. Install Node dependencies
+
 ```bash
 docker exec -it bedrock-node bash
 cd /var/www/html/web/app/themes/uvalab
@@ -89,6 +93,7 @@ npm run build
 ### 6. Configure the environment
 
 Edit Bedrock's `.env`:
+
 ```env
 DB_NAME=wordpress
 DB_USER=wordpress
@@ -98,16 +103,19 @@ WP_HOME=http://localhost:8080
 ```
 
 ### 7. Generate APP_KEY
+
 ```bash
 wp acorn key:generate
 ```
 
 ### 8. Run migrations
+
 ```bash
 wp acorn migrate
 ```
 
 ### 9. Run seeders (optional)
+
 ```bash
 wp acorn db:seed
 ```
@@ -116,16 +124,15 @@ wp acorn db:seed
 
 ## Admin Panel
 
-
 The theme registers a custom **UvaLab** menu in the WordPress admin panel, powered by Flux UI via iframe routing.
 
 Access at: `http://localhost:8080/wp-admin/admin.php?page=uvalab-options`
 
 ### Available sections
 
-| Section | URL |
-|---|---|
-| Dashboard | `/uvalab-admin` |
+| Section     | URL                          |
+| ----------- | ---------------------------- |
+| Dashboard   | `/uvalab-admin`              |
 | Hero Slides | `/uvalab-admin/sliders/hero` |
 
 ---
@@ -136,16 +143,17 @@ The theme includes a custom authentication system built with Livewire and Flux U
 
 ### Routes
 
-| Route | Description |
-|---|---|
-| `/login` | Customer login |
-| `/register` | Customer registration |
-| `/logout` | Ends the session |
+| Route         | Description                         |
+| ------------- | ----------------------------------- |
+| `/login`      | Customer login                      |
+| `/register`   | Customer registration               |
+| `/logout`     | Ends the session                    |
 | `/my-account` | Customer dashboard (requires login) |
 
 ### WooCommerce My Account
 
 Replace the default `[woocommerce_my_account]` shortcode with:
+
 ```
 [uvalab_my_account]
 ```
@@ -161,6 +169,7 @@ Edit the **My Account** page in WordPress admin and swap the shortcode to use th
 ## Livewire
 
 ### Config `config/livewire.php`
+
 ```php
 'make_command' => [
     'type' => 'class',
@@ -169,16 +178,19 @@ Edit the **My Account** page in WordPress admin and swap the shortcode to use th
 ```
 
 ### Create a component
+
 ```bash
 wp acorn make:livewire ComponentName
 ```
 
 ### Use in a Blade view
+
 ```blade
 <livewire:component-name />
 ```
 
 ### Use via WordPress shortcode
+
 ```
 [livewire component="component-name"]
 ```
@@ -188,6 +200,7 @@ wp acorn make:livewire ComponentName
 ## FSE (Full Site Editing)
 
 Block templates are located in `templates/`. Blade directives are available via `roots/acorn-fse-helper`:
+
 ```blade
 @blocks
   <!-- wp:paragraph -->
@@ -250,17 +263,6 @@ If no staged files match configured patterns, commit proceeds normally.
 
 ---
 
-## Husky v10 Notice
-
-Remove deprecated lines from `.husky/pre-commit` if upgrading:
-
-```bash
-  #!/usr/bin/env sh
-  . "$(dirname -- "$0")/_/husky.sh"
-```
-
----
-
 ## PHPStan Notes
 
 - WordPress functions are supported via `wordpress-stubs`
@@ -282,6 +284,7 @@ Run tests
 ```
 
 ### Test structure
+
 - tests/Feature → integration / application behavior
 - tests/Unit → isolated logic tests
 
@@ -294,10 +297,11 @@ it('aplicação sobe sem erros', function () {
 ```
 
 ### Notes
+
 - Tests are designed to run without full WordPress boot
 - Focus is on application integrity and core functionality
 - Avoid relying on WordPress global functions unless properly mocked
-  
+
 ### Pre-push Hooks
 
 Before pushing code, the following checks are executed automatically:
@@ -313,12 +317,14 @@ If any step fails, the push is aborted.
 ## Useful Commands
 
 ### Composer
+
 ```bash
 composer install
 composer dump-autoload
 ```
 
 ### Acorn / WP-CLI
+
 ```bash
 wp acorn list
 wp acorn key:generate
@@ -334,6 +340,7 @@ wp acorn optimize:clear
 ```
 
 ### Node
+
 ```bash
 npm install
 npm run build
@@ -341,6 +348,7 @@ npm run dev
 ```
 
 ### Wipe all data and start fresh
+
 ```bash
 
 # 1. Wipe
