@@ -271,6 +271,45 @@ Remove deprecated lines from `.husky/pre-commit` if upgrading:
 
 ---
 
+## Testing (Pest)
+
+This project uses Pest PHP for automated testing.
+
+Run tests
+
+```bash
+./vendor/bin/pest
+```
+
+### Test structure
+- tests/Feature → integration / application behavior
+- tests/Unit → isolated logic tests
+
+Example
+
+```php
+it('aplicação sobe sem erros', function () {
+    expect(\Roots\Acorn\Application::getInstance())->not->toBeNull();
+});
+```
+
+### Notes
+- Tests are designed to run without full WordPress boot
+- Focus is on application integrity and core functionality
+- Avoid relying on WordPress global functions unless properly mocked
+  
+### Pre-push Hooks
+
+Before pushing code, the following checks are executed automatically:
+
+- PHPStan (static analysis)
+- Pest (tests)
+- Vite build
+
+If any step fails, the push is aborted.
+
+---
+
 ## Useful Commands
 
 ### Composer
