@@ -14,9 +14,10 @@ afterEach(function () {
 test('index renderiza a view coming-soon', function () {
     $controller = new ComingSoonController;
 
-    expect($controller->index())->toBe([
-        'view' => 'coming-soon',
-        'data' => [],
-        'mergeData' => [],
-    ]);
+    $result = $controller->index();
+
+    expect($result)->toBeInstanceOf(TestViewResult::class);
+    expect($result->view)->toBe('coming-soon');
+    expect($result->data)->toBe([]);
+    expect($result->mergeData)->toBe([]);
 });

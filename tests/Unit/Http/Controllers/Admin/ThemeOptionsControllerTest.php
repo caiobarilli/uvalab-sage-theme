@@ -21,11 +21,12 @@ test('index renderiza a view de opcoes quando usuario pode gerenciar opcoes', fu
 
     $controller = new ThemeOptionsController;
 
-    expect($controller->index())->toBe([
-        'view' => 'admin.theme-options',
-        'data' => [],
-        'mergeData' => [],
-    ]);
+    $result = $controller->index();
+
+    expect($result)->toBeInstanceOf(TestViewResult::class);
+    expect($result->view)->toBe('admin.theme-options');
+    expect($result->data)->toBe([]);
+    expect($result->mergeData)->toBe([]);
 });
 
 test('heroSlider renderiza a view do slider quando usuario pode gerenciar opcoes', function () {
@@ -37,9 +38,10 @@ test('heroSlider renderiza a view do slider quando usuario pode gerenciar opcoes
 
     $controller = new ThemeOptionsController;
 
-    expect($controller->heroSlider())->toBe([
-        'view' => 'admin.sliders.hero',
-        'data' => [],
-        'mergeData' => [],
-    ]);
+    $result = $controller->heroSlider();
+
+    expect($result)->toBeInstanceOf(TestViewResult::class);
+    expect($result->view)->toBe('admin.sliders.hero');
+    expect($result->data)->toBe([]);
+    expect($result->mergeData)->toBe([]);
 });
