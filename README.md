@@ -200,7 +200,7 @@ Block templates are located in `templates/`. Blade directives are available via 
 
 ---
 
-## 🧪 Code Quality
+## Code Quality
 
 This project uses **PHPStan**, **Husky**, and **Lint-Staged** to ensure code quality and prevent bad commits.
 
@@ -216,7 +216,7 @@ Run static analysis:
 
 ---
 
-## 🪝 Git Hooks (Husky + Lint-Staged)
+## Git Hooks (Husky + Lint-Staged)
 
 Pre-commit hooks are configured to automatically run checks before each commit.
 
@@ -238,7 +238,7 @@ If no staged files match configured patterns, commit proceeds normally.
 
 ---
 
-## 📦 Available Scripts
+## Available Scripts
 
 ```bash
   npm run build
@@ -250,7 +250,7 @@ If no staged files match configured patterns, commit proceeds normally.
 
 ---
 
-## ⚠️ Husky v10 Notice
+## Husky v10 Notice
 
 Remove deprecated lines from `.husky/pre-commit` if upgrading:
 
@@ -261,7 +261,7 @@ Remove deprecated lines from `.husky/pre-commit` if upgrading:
 
 ---
 
-## 🧠 PHPStan Notes
+## PHPStan Notes
 
 - WordPress functions are supported via `wordpress-stubs`
 - WooCommerce functions via `woocommerce-stubs`
