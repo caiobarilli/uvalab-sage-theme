@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class ShortcodesServiceProvider extends ServiceProvider
 {
@@ -15,11 +16,11 @@ class ShortcodesServiceProvider extends ServiceProvider
                 return '';
             }
 
-            return \Livewire\Livewire::mount($atts['component']);
+            return Livewire::mount($atts['component']);
         });
 
         add_shortcode('uvalab_my_account', function () {
-            return \Livewire\Livewire::mount('customer.dashboard');
+            return Livewire::mount('customer.dashboard');
         });
     }
 }

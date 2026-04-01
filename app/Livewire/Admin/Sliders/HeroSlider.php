@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Sliders;
 
 use Flux\Flux;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -63,7 +64,7 @@ class HeroSlider extends Component
         $this->resetPage();
     }
 
-    #[\Livewire\Attributes\Computed]
+    #[Computed]
     public function slides(): array
     {
         $query = new \WP_Query([
