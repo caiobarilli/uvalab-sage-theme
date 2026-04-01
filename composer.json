@@ -48,7 +48,10 @@
     "roots/acorn-fse-helper": "^1.0"
   },
   "require-dev": {
-    "laravel/pint": "^1.20"
+    "larastan/larastan": "^3.0",
+    "laravel/pint": "^1.20",
+    "php-stubs/woocommerce-stubs": "^10.6",
+    "php-stubs/wordpress-stubs": "^6.9"
   },
   "suggest": {
     "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0)."
@@ -61,6 +64,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "phpstan": "vendor/bin/phpstan analyse",
+    "pint": "vendor/bin/pint",
     "post-autoload-dump": [
       "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
     ]

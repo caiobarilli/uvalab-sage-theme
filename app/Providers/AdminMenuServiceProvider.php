@@ -27,7 +27,7 @@ class AdminMenuServiceProvider extends ServiceProvider
                 'Dashboard',
                 'manage_options',
                 'uvalab-options',
-                false
+                '__return_null'
             );
 
             add_submenu_page(
@@ -36,7 +36,7 @@ class AdminMenuServiceProvider extends ServiceProvider
                 'Hero Slides',
                 'manage_options',
                 'edit.php?post_type=hero_slide',
-                false
+                '__return_null'
             );
         });
 
