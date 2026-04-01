@@ -50,6 +50,7 @@
   "require-dev": {
     "larastan/larastan": "^3.0",
     "laravel/pint": "^1.20",
+    "pestphp/pest": "^4.4",
     "php-stubs/woocommerce-stubs": "^10.6",
     "php-stubs/wordpress-stubs": "^6.9"
   },
@@ -59,10 +60,18 @@
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
   "scripts": {
     "phpstan": "vendor/bin/phpstan analyse",
     "pint": "vendor/bin/pint",
