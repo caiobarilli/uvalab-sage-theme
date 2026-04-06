@@ -1,0 +1,19 @@
+.site-header {
+  @apply bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between gap-8;
+}
+
+.site-header svg {
+  @apply w-5 h-5;
+}
+
+.shop-menu {
+  @apply flex items-center gap-6;
+}
+
+.shop-menu__icon {
+  @apply inline-flex items-center justify-center text-gray-700 transition-colors hover:text-purple-600 relative;
+}
+
+.shop-menu__badge {
+  @apply absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center;
+}

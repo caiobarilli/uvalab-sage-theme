@@ -21,7 +21,7 @@
       "composer phpstan"
     ],
     "*.{js,ts,css,blade.php}": [
-      "npm run build"
+      "bash -c 'npm run build'"
     ]
   },
   "devDependencies": {
