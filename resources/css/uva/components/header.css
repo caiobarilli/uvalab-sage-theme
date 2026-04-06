@@ -14,6 +14,14 @@
   @apply flex items-center gap-6;
 }
 
+.site-header__nav ul {
+  @apply flex items-center gap-6 list-none m-0 p-0;
+}
+
+.site-header__nav li {
+  @apply m-0 p-0;
+}
+
 .site-header__nav a {
   @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-purple-600;
 }
@@ -55,6 +63,10 @@
 
   .site-header__nav {
     @apply hidden flex-col items-start gap-4 absolute top-full left-0 w-full bg-white border-b border-gray-200 px-6 py-4 z-50;
+  }
+
+  .site-header__nav ul {
+    @apply flex-col items-start gap-4 w-full;
   }
 
   .site-header__nav.is-open {
