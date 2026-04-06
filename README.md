@@ -213,6 +213,25 @@ Block templates are located in `templates/`. Blade directives are available via 
 
 ---
 
+## Typography
+
+The theme uses **Roboto** as the default font family, loaded locally via `woff2` files.
+
+### Available variants
+
+| Weight | Style  | File                  |
+| ------ | ------ | --------------------- |
+| 300    | Normal | Roboto-Light.woff2    |
+| 400    | Normal | Roboto-Regular.woff2  |
+| 400    | Italic | Roboto-Italic.woff2   |
+| 500    | Normal | Roboto-Medium.woff2   |
+| 700    | Normal | Roboto-Bold.woff2     |
+| 900    | Normal | Roboto-Black.woff2    |
+
+Font files are located at `resources/fonts/roboto/` and registered in `theme.json` via `fontFace`. No CDN dependency.
+
+---
+
 ## Code Quality
 
 This project uses **PHPStan**, **Husky**, and **Lint-Staged** to ensure code quality and prevent bad commits.
