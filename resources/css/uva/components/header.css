@@ -1,9 +1,21 @@
 .site-header {
-  @apply bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between gap-8;
+  @apply bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between gap-8 relative;
 }
 
 .site-header svg {
   @apply w-5 h-5;
+}
+
+.site-header__logo {
+  @apply text-xl font-bold text-gray-900 no-underline;
+}
+
+.site-header__nav {
+  @apply flex items-center gap-6;
+}
+
+.site-header__nav a {
+  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-purple-600;
 }
 
 .shop-menu {
@@ -16,4 +28,36 @@
 
 .shop-menu__badge {
   @apply absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center;
+}
+
+/* Toggle button */
+.site-header__toggle {
+  @apply hidden items-center justify-center text-gray-700 bg-transparent border-0 cursor-pointer p-0;
+}
+
+.site-header__toggle .icon-close {
+  @apply hidden;
+}
+
+.site-header__toggle.is-open .icon-open {
+  @apply hidden;
+}
+
+.site-header__toggle.is-open .icon-close {
+  @apply block;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .site-header__toggle {
+    @apply inline-flex;
+  }
+
+  .site-header__nav {
+    @apply hidden flex-col items-start gap-4 absolute top-full left-0 w-full bg-white border-b border-gray-200 px-6 py-4 z-50;
+  }
+
+  .site-header__nav.is-open {
+    @apply flex;
+  }
 }
