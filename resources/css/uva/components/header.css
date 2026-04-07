@@ -39,7 +39,7 @@
 }
 
 .site-header__nav .wp-block-navigation-item__content {
-  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-purple-600;
+  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-primary;
 }
 
 .shop-menu {
@@ -47,7 +47,7 @@
 }
 
 .shop-menu__icon {
-  @apply inline-flex items-center justify-center text-gray-700 transition-colors hover:text-purple-600 relative;
+  @apply inline-flex items-center justify-center text-gray-700 transition-colors hover:text-primary relative;
 }
 
 .shop-menu__badge {

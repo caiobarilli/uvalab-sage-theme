@@ -19,7 +19,54 @@
       "defaultDuotone": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "duotone": []
+      "duotone": [],
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#561922",
+          "name": "Primary"
+        },
+        {
+          "slug": "primary-light",
+          "color": "#7A2A38",
+          "name": "Primary Light"
+        },
+        {
+          "slug": "primary-dark",
+          "color": "#3D1118",
+          "name": "Primary Dark"
+        },
+        {
+          "slug": "text",
+          "color": "#1A1C1C",
+          "name": "Text"
+        },
+        {
+          "slug": "text-muted",
+          "color": "#867273",
+          "name": "Text Muted"
+        },
+        {
+          "slug": "gray",
+          "color": "#E2E2E2",
+          "name": "Gray"
+        },
+        {
+          "slug": "gray-dark",
+          "color": "#867273",
+          "name": "Gray Dark"
+        },
+        {
+          "slug": "background",
+          "color": "#FFFFFF",
+          "name": "Background"
+        },
+        {
+          "slug": "surface",
+          "color": "#F9FAFB",
+          "name": "Surface"
+        }
+      ]
     },
     "custom": {
       "spacing": {},
