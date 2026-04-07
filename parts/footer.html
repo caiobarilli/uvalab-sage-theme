@@ -1,5 +1,24 @@
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">
-  Proudly powered by <a href="https://wordpress.org/">WordPress</a>.
-</p>
-<!-- /wp:paragraph -->
+<!-- wp:group {"className":"site-footer__row","align":"full","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignfull site-footer__row">
+
+  <!-- wp:group {"className":"site-footer__brand","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+  <div class="wp-block-group site-footer__brand">
+    <!-- wp:site-title {"level":0} /-->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:group {"className":"site-footer__nav-wrapper","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+  <div class="wp-block-group site-footer__nav-wrapper">
+    <!-- wp:navigation {"className":"site-footer__nav","overlayMenu":"never"} /-->
+    <!-- wp:shortcode -->
+    [footer_nav]
+    <!-- /wp:shortcode -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:paragraph {"className":"site-footer__copy"} -->
+  <p class="site-footer__copy">© 2026</p>
+  <!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->

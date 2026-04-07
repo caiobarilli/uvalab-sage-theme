@@ -1,0 +1,57 @@
+.site-footer {
+  @apply bg-white border-t border-gray-200 py-6 px-6;
+}
+
+.site-footer__row {
+  @apply flex items-center justify-between gap-8 w-full max-w-[var(--wp--style--global--content-size)] mx-auto;
+}
+
+.site-footer__brand .wp-block-site-title {
+  @apply text-xl font-bold m-0;
+}
+
+.site-footer__brand .wp-block-site-title a {
+  @apply text-gray-900 no-underline;
+}
+
+.site-footer__nav-wrapper {
+  @apply flex items-center;
+}
+
+.site-footer__nav-wrapper:has(.site-footer__nav--custom) .site-footer__nav.wp-block-navigation {
+  @apply hidden;
+}
+
+.site-footer__nav.wp-block-navigation {
+  @apply flex items-center gap-6;
+}
+
+.site-footer__nav .wp-block-navigation__container {
+  @apply flex items-center gap-6 list-none m-0 p-0;
+}
+
+.site-footer__nav .wp-block-navigation-item__content {
+  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-primary;
+}
+
+.site-footer__nav--custom .site-footer__menu {
+  @apply flex items-center gap-6 list-none m-0 p-0;
+}
+
+.site-footer__nav--custom .site-footer__menu li a {
+  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-primary;
+}
+
+.site-footer__copy {
+  @apply text-sm text-text-muted m-0;
+}
+
+.site-footer__copy a {
+  @apply text-text-muted no-underline hover:text-primary transition-colors;
+}
+
+@media (max-width: 767px) {
+  .site-footer__row {
+    @apply flex-col items-center gap-4 text-center;
+  }
+}
