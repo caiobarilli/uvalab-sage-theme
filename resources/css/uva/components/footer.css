@@ -1,5 +1,5 @@
-.site-footer {
-  @apply bg-white border-t border-gray-200 py-6 px-6;
+.site-footer__bg {
+  @apply w-full py-6 px-6 min-h-[18vh];
 }
 
 .site-footer__row {
