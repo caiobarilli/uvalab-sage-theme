@@ -43,7 +43,7 @@
 }
 
 .shop-menu {
-  @apply flex items-center gap-6;
+  @apply flex items-center gap-2;
 }
 
 .shop-menu__icon {
