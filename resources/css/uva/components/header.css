@@ -6,10 +6,6 @@
   @apply flex items-center justify-between gap-8 w-full;
 }
 
-.site-header__logo {
-  @apply text-xl font-bold text-gray-900 no-underline;
-}
-
 .site-header__brand {
   @apply flex items-center gap-3;
 }
@@ -30,27 +26,24 @@
   @apply hidden;
 }
 
-.site-header__nav {
-  @apply flex items-center gap-6;
-}
-
-.site-header__nav ul {
-  @apply flex items-center gap-6 list-none m-0 p-0;
-}
-
-.site-header__nav li {
-  @apply m-0 p-0;
-}
-
-.site-header__nav a {
-  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-purple-600;
-}
-
 .site-header svg {
   @apply w-5 h-5;
 }
 
-.shop-menu {  @apply flex items-center gap-6;
+.site-header__nav.wp-block-navigation {
+  @apply flex items-center gap-6;
+}
+
+.site-header__nav .wp-block-navigation__container {
+  @apply flex items-center gap-6 list-none m-0 p-0;
+}
+
+.site-header__nav .wp-block-navigation-item__content {
+  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-purple-600;
+}
+
+.shop-menu {
+  @apply flex items-center gap-6;
 }
 
 .shop-menu__icon {
@@ -84,15 +77,27 @@
     @apply inline-flex;
   }
 
-  .site-header__nav {
-    @apply hidden flex-col items-start gap-4 absolute top-full left-0 w-full bg-white border-b border-gray-200 px-6 py-4 z-50;
+  .site-header .site-header__nav.wp-block-navigation {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 1.5rem;
+    z-index: 50;
   }
 
-  .site-header__nav ul {
-    @apply flex-col items-start gap-4 w-full;
-  }
-
-  .site-header__nav.is-open {
-    @apply flex;
+  .site-header .site-header__nav.wp-block-navigation.is-open,
+  .site-header .site-header__nav.wp-block-navigation.is-open .wp-block-navigation__container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
   }
 }
