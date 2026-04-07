@@ -3,7 +3,7 @@
 }
 
 .site-header__row {
-  @apply flex items-center justify-between gap-8 w-full;
+  @apply flex items-center justify-between gap-8 w-full max-w-[var(--wp--style--global--content-size)] mx-auto;
 }
 
 .site-header__brand {
