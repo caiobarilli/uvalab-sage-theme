@@ -374,7 +374,7 @@ npm run dev
 wp acorn db:wipe
 
 # 2. Recriar tabelas do WordPress
-wp core install --url="http://localhost:8080" --title="wordpress" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wordpress@wordpress.com" --skip-email
+wp core install --url="http://localhost:8080" --title="UvaLab" --admin_user="uva" --admin_password="uva" --admin_email="uva@uva.com" --skip-email
 
 # 3. Ativar tema
 wp theme activate uvalab
