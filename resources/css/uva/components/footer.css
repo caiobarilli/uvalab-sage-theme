@@ -14,14 +14,6 @@
   @apply text-gray-900 no-underline;
 }
 
-.site-footer__nav-wrapper {
-  @apply flex items-center;
-}
-
-.site-footer__nav-wrapper:has(.site-footer__nav--custom) .site-footer__nav.wp-block-navigation {
-  @apply hidden;
-}
-
 .site-footer__nav.wp-block-navigation {
   @apply flex items-center gap-6;
 }
@@ -31,14 +23,6 @@
 }
 
 .site-footer__nav .wp-block-navigation-item__content {
-  @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-primary;
-}
-
-.site-footer__nav--custom .site-footer__menu {
-  @apply flex items-center gap-6 list-none m-0 p-0;
-}
-
-.site-footer__nav--custom .site-footer__menu li a {
   @apply text-sm font-medium text-gray-700 no-underline transition-colors hover:text-primary;
 }
 
