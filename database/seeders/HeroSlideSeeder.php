@@ -12,171 +12,147 @@ class HeroSlideSeeder extends Seeder
             [
                 'title' => 'A Tradition in Every Sip',
                 'content' => '
-                <!-- wp:group {"className":"hero-slide-layout","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group hero-slide-layout">
+                    <!-- wp:group {"className":"hero-slide-layout","layout":{"type":"default"}} -->
+                    <div class="wp-block-group hero-slide-layout">
 
-                    <!-- wp:columns {"verticalAlignment":"center"} -->
-                    <div class="wp-block-columns are-vertically-aligned-center">
+                        <!-- wp:group {"className":"hero-slide__content","layout":{"type":"default"}} -->
+                        <div class="wp-block-group hero-slide__content">
 
-                        <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-                        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-
-                            <!-- wp:paragraph {"className":"slide-subtitle"} -->
-                            <p class="slide-subtitle">Winter Collection 2024</p>
+                            <!-- wp:paragraph {"className":"hero-slide__subtitle"} -->
+                            <p class="hero-slide__subtitle">Winter Collection 2024</p>
                             <!-- /wp:paragraph -->
 
-                            <!-- wp:heading {"level":1,"className":"slide-title"} -->
-                            <h1 class="wp-block-heading slide-title">A Tradition in Every Sip</h1>
+                            <!-- wp:heading {"level":1,"className":"hero-slide__title"} -->
+                            <h1 class="wp-block-heading hero-slide__title">A Tradition in Every Sip</h1>
                             <!-- /wp:heading -->
 
-                            <!-- wp:paragraph {"className":"slide-description"} -->
-                            <p class="slide-description">A meticulous curation from the most remote and prestigious vineyards in the world.</p>
+                            <!-- wp:paragraph {"className":"hero-slide__description"} -->
+                            <p class="hero-slide__description">A meticulous curation from the most remote and prestigious vineyards in the world.</p>
                             <!-- /wp:paragraph -->
 
-                            <!-- wp:buttons -->
-                            <div class="wp-block-buttons">
-                                <!-- wp:button {"style":{"color":{"background":"#7a1c2e","text":"#ffffff"}}} -->
-                                <div class="wp-block-button">
-                                    <a class="wp-block-button__link has-text-color has-background wp-element-button" href="/shop" style="color:#ffffff;background-color:#7a1c2e">Discover Collection</a>
-                                </div>
-                                <!-- /wp:button -->
+                            <!-- wp:group {"className":"hero-slide__button-wrapper","layout":{"type":"default"}} -->
+                            <div class="wp-block-group hero-slide__button-wrapper">
+                                <!-- wp:paragraph {"className":"hero-slide__button-link"} -->
+                                <p class="hero-slide__button-link"><a href="/shop">Discover Collection</a></p>
+                                <!-- /wp:paragraph -->
                             </div>
-                            <!-- /wp:buttons -->
+                            <!-- /wp:group -->
 
                         </div>
-                        <!-- /wp:column -->
+                        <!-- /wp:group -->
 
-                        <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-                        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+                        <!-- wp:group {"className":"hero-slide__image-wrapper","layout":{"type":"default"}} -->
+                        <div class="wp-block-group hero-slide__image-wrapper">
 
-                            <!-- wp:image {"sizeSlug":"large","className":"slide-image"} -->
-                            <figure class="wp-block-image size-large slide-image">
+                            <!-- wp:image {"sizeSlug":"large","className":"hero-slide__image-container"} -->
+                            <figure class="wp-block-image size-large hero-slide__image-container">
                                 <img src="https://placehold.co/600x700/f5f5f5/ccc?text=Wine+Bottle" alt="Wine Bottle"/>
                             </figure>
                             <!-- /wp:image -->
 
                         </div>
-                        <!-- /wp:column -->
+                        <!-- /wp:group -->
 
                     </div>
-                    <!-- /wp:columns -->
-
-                </div>
-                <!-- /wp:group -->
+                    <!-- /wp:group -->
                 ',
                 'order' => 1,
             ],
             [
                 'title' => 'The Art of Fine Wine',
                 'content' => '
-                <!-- wp:group {"className":"hero-slide-layout","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group hero-slide-layout">
+                    <!-- wp:group {"className":"hero-slide-layout","layout":{"type":"default"}} -->
+                    <div class="wp-block-group hero-slide-layout">
 
-                    <!-- wp:columns {"verticalAlignment":"center"} -->
-                    <div class="wp-block-columns are-vertically-aligned-center">
+                        <!-- wp:group {"className":"hero-slide__content","layout":{"type":"default"}} -->
+                        <div class="wp-block-group hero-slide__content">
 
-                        <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-                        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-
-                            <!-- wp:paragraph {"className":"slide-subtitle"} -->
-                            <p class="slide-subtitle">Winter Collection 2024</p>
+                            <!-- wp:paragraph {"className":"hero-slide__subtitle"} -->
+                            <p class="hero-slide__subtitle">Winter Collection 2024</p>
                             <!-- /wp:paragraph -->
 
-                            <!-- wp:heading {"level":1,"className":"slide-title"} -->
-                            <h1 class="wp-block-heading slide-title">A Tradition in Every Sip</h1>
+                            <!-- wp:heading {"level":1,"className":"hero-slide__title"} -->
+                            <h1 class="wp-block-heading hero-slide__title">A Tradition in Every Sip</h1>
                             <!-- /wp:heading -->
 
-                            <!-- wp:paragraph {"className":"slide-description"} -->
-                            <p class="slide-description">A meticulous curation from the most remote and prestigious vineyards in the world.</p>
+                            <!-- wp:paragraph {"className":"hero-slide__description"} -->
+                            <p class="hero-slide__description">A meticulous curation from the most remote and prestigious vineyards in the world.</p>
                             <!-- /wp:paragraph -->
 
-                            <!-- wp:buttons -->
-                            <div class="wp-block-buttons">
-                                <!-- wp:button {"style":{"color":{"background":"#7a1c2e","text":"#ffffff"}}} -->
-                                <div class="wp-block-button">
-                                    <a class="wp-block-button__link has-text-color has-background wp-element-button" href="/shop" style="color:#ffffff;background-color:#7a1c2e">Discover Collection</a>
-                                </div>
-                                <!-- /wp:button -->
+                            <!-- wp:group {"className":"hero-slide__button-wrapper","layout":{"type":"default"}} -->
+                            <div class="wp-block-group hero-slide__button-wrapper">
+                                <!-- wp:paragraph {"className":"hero-slide__button-link"} -->
+                                <p class="hero-slide__button-link"><a href="/shop">Discover Collection</a></p>
+                                <!-- /wp:paragraph -->
                             </div>
-                            <!-- /wp:buttons -->
+                            <!-- /wp:group -->
 
                         </div>
-                        <!-- /wp:column -->
+                        <!-- /wp:group -->
 
-                        <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-                        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+                        <!-- wp:group {"className":"hero-slide__image-wrapper","layout":{"type":"default"}} -->
+                        <div class="wp-block-group hero-slide__image-wrapper">
 
-                            <!-- wp:image {"sizeSlug":"large","className":"slide-image"} -->
-                            <figure class="wp-block-image size-large slide-image">
+                            <!-- wp:image {"sizeSlug":"large","className":"hero-slide__image-container"} -->
+                            <figure class="wp-block-image size-large hero-slide__image-container">
                                 <img src="https://placehold.co/600x700/f5f5f5/ccc?text=Wine+Bottle" alt="Wine Bottle"/>
                             </figure>
                             <!-- /wp:image -->
 
                         </div>
-                        <!-- /wp:column -->
+                        <!-- /wp:group -->
 
                     </div>
-                    <!-- /wp:columns -->
-
-                </div>
-                <!-- /wp:group -->
+                    <!-- /wp:group -->
                 ',
                 'order' => 2,
             ],
             [
                 'title' => 'Taste the Difference',
                 'content' => '
-                <!-- wp:group {"className":"hero-slide-layout","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group hero-slide-layout">
+                    <!-- wp:group {"className":"hero-slide-layout","layout":{"type":"default"}} -->
+                    <div class="wp-block-group hero-slide-layout">
 
-                    <!-- wp:columns {"verticalAlignment":"center"} -->
-                    <div class="wp-block-columns are-vertically-aligned-center">
+                        <!-- wp:group {"className":"hero-slide__content","layout":{"type":"default"}} -->
+                        <div class="wp-block-group hero-slide__content">
 
-                        <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-                        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-
-                            <!-- wp:paragraph {"className":"slide-subtitle"} -->
-                            <p class="slide-subtitle">Winter Collection 2024</p>
+                            <!-- wp:paragraph {"className":"hero-slide__subtitle"} -->
+                            <p class="hero-slide__subtitle">Winter Collection 2024</p>
                             <!-- /wp:paragraph -->
 
-                            <!-- wp:heading {"level":1,"className":"slide-title"} -->
-                            <h1 class="wp-block-heading slide-title">A Tradition in Every Sip</h1>
+                            <!-- wp:heading {"level":1,"className":"hero-slide__title"} -->
+                            <h1 class="wp-block-heading hero-slide__title">A Tradition in Every Sip</h1>
                             <!-- /wp:heading -->
 
-                            <!-- wp:paragraph {"className":"slide-description"} -->
-                            <p class="slide-description">A meticulous curation from the most remote and prestigious vineyards in the world.</p>
+                            <!-- wp:paragraph {"className":"hero-slide__description"} -->
+                            <p class="hero-slide__description">A meticulous curation from the most remote and prestigious vineyards in the world.</p>
                             <!-- /wp:paragraph -->
 
-                            <!-- wp:buttons -->
-                            <div class="wp-block-buttons">
-                                <!-- wp:button {"style":{"color":{"background":"#7a1c2e","text":"#ffffff"}}} -->
-                                <div class="wp-block-button">
-                                    <a class="wp-block-button__link has-text-color has-background wp-element-button" href="/shop" style="color:#ffffff;background-color:#7a1c2e">Discover Collection</a>
-                                </div>
-                                <!-- /wp:button -->
+                            <!-- wp:group {"className":"hero-slide__button-wrapper","layout":{"type":"default"}} -->
+                            <div class="wp-block-group hero-slide__button-wrapper">
+                                <!-- wp:paragraph {"className":"hero-slide__button-link"} -->
+                                <p class="hero-slide__button-link"><a href="/shop">Discover Collection</a></p>
+                                <!-- /wp:paragraph -->
                             </div>
-                            <!-- /wp:buttons -->
+                            <!-- /wp:group -->
 
                         </div>
-                        <!-- /wp:column -->
+                        <!-- /wp:group -->
 
-                        <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-                        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+                        <!-- wp:group {"className":"hero-slide__image-wrapper","layout":{"type":"default"}} -->
+                        <div class="wp-block-group hero-slide__image-wrapper">
 
-                            <!-- wp:image {"sizeSlug":"large","className":"slide-image"} -->
-                            <figure class="wp-block-image size-large slide-image">
+                            <!-- wp:image {"sizeSlug":"large","className":"hero-slide__image-container"} -->
+                            <figure class="wp-block-image size-large hero-slide__image-container">
                                 <img src="https://placehold.co/600x700/f5f5f5/ccc?text=Wine+Bottle" alt="Wine Bottle"/>
                             </figure>
                             <!-- /wp:image -->
 
                         </div>
-                        <!-- /wp:column -->
+                        <!-- /wp:group -->
 
                     </div>
-                    <!-- /wp:columns -->
-
-                </div>
-                <!-- /wp:group -->
+                    <!-- /wp:group -->
                 ',
                 'order' => 3,
             ],
