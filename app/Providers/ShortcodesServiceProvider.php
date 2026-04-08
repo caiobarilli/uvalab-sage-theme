@@ -22,20 +22,5 @@ class ShortcodesServiceProvider extends ServiceProvider
         add_shortcode('uvalab_my_account', function () {
             return Livewire::mount('customer.dashboard');
         });
-
-        add_shortcode('footer_nav', function () {
-            if (! has_nav_menu('footer_navigation')) {
-                return '';
-            }
-
-            return wp_nav_menu([
-                'theme_location' => 'footer_navigation',
-                'menu_class' => 'site-footer__menu',
-                'container' => 'nav',
-                'container_class' => 'site-footer__nav site-footer__nav--custom',
-                'container_aria_label' => __('Footer Navigation', 'sage'),
-                'echo' => false,
-            ]);
-        });
     }
 }
