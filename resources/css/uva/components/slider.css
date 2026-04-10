@@ -49,7 +49,6 @@
 
 .hero-slide__title {
     @apply text-7xl font-bold text-text leading-tight m-0;
-    font-family: Georgia, 'Times New Roman', serif;
 }
 
 .hero-slide__description {

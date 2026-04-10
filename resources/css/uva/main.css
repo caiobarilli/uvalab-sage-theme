@@ -1,5 +1,7 @@
 @import './components/header.css';
 
-@import './components/footer.css';
-
 @import './components/slider.css';
+
+@import './components/categories.css';
+
+@import './components/footer.css';
