@@ -1,0 +1,27 @@
+<!-- wp:group {"className":"products-section__bg","backgroundColor":"surface","layout":{"type":"default"}} -->
+<div class="wp-block-group products-section__bg has-surface-background-color has-background">
+
+  <!-- wp:group {"className":"products-section__row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+  <div class="wp-block-group products-section__row">
+
+    <!-- wp:group {"className":"products-section__filter","layout":{"type":"default"}} -->
+    <div class="wp-block-group products-section__filter">
+      <!-- wp:shortcode -->
+      [livewire component="filter-products"]
+      <!-- /wp:shortcode -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"products-section__list","layout":{"type":"default"}} -->
+    <div class="wp-block-group products-section__list">
+      <!-- wp:shortcode -->
+      [livewire component="products-list"]
+      <!-- /wp:shortcode -->
+    </div>
+    <!-- /wp:group -->
+
+  </div>
+  <!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->

@@ -1,6 +1,7 @@
 <?php
 
 use App\Providers\AdminMenuServiceProvider;
+use App\Providers\LivewireAssetsServiceProvider;
 use App\Providers\PostTypesServiceProvider;
 use App\Providers\ShortcodesServiceProvider;
 use App\Providers\ThemeServiceProvider;
@@ -59,6 +60,7 @@ Application::configure()
         AdminMenuServiceProvider::class,
         PostTypesServiceProvider::class,
         ShortcodesServiceProvider::class,
+        LivewireAssetsServiceProvider::class,
     ])
     ->withRouting(
         wordpress: true,

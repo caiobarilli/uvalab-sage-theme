@@ -1,0 +1,89 @@
+.products-section__bg {
+  @apply w-full py-16 px-6;
+}
+
+.products-section__row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 2rem;
+  @apply w-full max-w-[var(--wp--style--global--content-size)] mx-auto;
+}
+
+.products-section__filter {
+  flex: 0 0 calc(33.333% - 1rem) !important;
+  max-width: calc(33.333% - 1rem) !important;
+}
+
+.products-section__list {
+  flex: 0 0 calc(66.666% - 1rem) !important;
+  max-width: calc(66.666% - 1rem) !important;
+}
+
+.products-list__items {
+  @apply flex flex-wrap gap-6;
+}
+
+.products-list__card {
+  @apply flex flex-col no-underline;
+  flex: 0 0 calc(33.333% - 1rem);
+}
+
+.products-list__image {
+  @apply w-full overflow-hidden;
+}
+
+.products-list__image img {
+  @apply w-full h-auto object-cover;
+}
+
+.products-list__title {
+  @apply text-sm text-text mt-3 m-0;
+}
+
+.products-list__price {
+  @apply text-sm font-bold text-text mt-1;
+}
+
+.products-list__empty {
+  @apply text-text-muted;
+}
+
+.products-list__pagination {
+  @apply flex items-center gap-2 mt-8;
+}
+
+.products-list__page-btn {
+  @apply px-3 py-2 text-sm border border-gray bg-white text-text cursor-pointer transition-colors;
+}
+
+.products-list__page-btn:hover {
+  @apply bg-surface;
+}
+
+.products-list__page-btn.is-active {
+  @apply bg-primary text-white border-primary;
+}
+
+.filter-products {
+  @apply text-text;
+}
+
+@media (max-width: 767px) {
+  .products-section__row {
+    flex-wrap: wrap !important;
+  }
+
+  .products-section__filter {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .products-section__list {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .products-list__card {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
