@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class ProductsList extends Component
 {
-    public int $perPage = 4;
+    public int $perPage = 6;
 
     public int $currentPage = 1;
 
@@ -21,6 +21,11 @@ class ProductsList extends Component
 
         $products = array_map(function ($post) {
             $product = wc_get_product($post->ID);
+            $categories = get_the_terms($post->ID, 'product_cat');
+            $category = '';
+            if ($categories && ! is_wp_error($categories)) {
+                $category = $categories[0]->name;
+            }
 
             return [
                 'id' => $post->ID,
@@ -28,6 +33,7 @@ class ProductsList extends Component
                 'permalink' => get_permalink($post->ID),
                 'image' => get_the_post_thumbnail_url($post->ID, 'woocommerce_thumbnail') ?: 'https://placehold.co/300x300/f5f5f5/ccc?text=Product',
                 'price' => $product ? $product->get_price_html() : '',
+                'category' => $category,
             ];
         }, $query->posts);
 

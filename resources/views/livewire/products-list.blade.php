@@ -1,13 +1,23 @@
 <div class="products-list">
     <div class="products-list__items">
         @forelse ($products as $product)
-            <a href="{{ $product['permalink'] }}" class="products-list__card">
-                <div class="products-list__image">
-                    <img src="{{ $product['image'] }}" alt="{{ $product['title'] }}" />
+            <div class="products-list__card">
+                <a href="{{ $product['permalink'] }}" class="products-list__image-link">
+                    <div class="products-list__image">
+                        <img src="{{ $product['image'] }}" alt="{{ $product['title'] }}" />
+                    </div>
+                </a>
+                <div class="products-list__info">
+                    @if (!empty($product['category']))
+                        <span class="products-list__category">{{ $product['category'] }}</span>
+                    @endif
+                    <a href="{{ $product['permalink'] }}" class="products-list__title">{{ $product['title'] }}</a>
+                    <div class="products-list__price">{!! $product['price'] !!}</div>
+                    <a href="{{ $product['permalink'] }}" class="products-list__buy-btn">
+                        {{ __('Buy', 'sage') }}
+                    </a>
                 </div>
-                <h3 class="products-list__title">{{ $product['title'] }}</h3>
-                <div class="products-list__price">{!! $product['price'] !!}</div>
-            </a>
+            </div>
         @empty
             <p class="products-list__empty">{{ __('No products found.', 'sage') }}</p>
         @endforelse

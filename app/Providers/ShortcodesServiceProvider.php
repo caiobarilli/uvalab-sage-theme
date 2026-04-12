@@ -9,6 +9,12 @@ class ShortcodesServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->registerShortcodes();
+        $this->disableAutopForLivewire();
+    }
+
+    private function registerShortcodes(): void
+    {
         add_shortcode('livewire', function ($atts) {
             $atts = shortcode_atts(['component' => ''], $atts);
 
@@ -16,11 +22,30 @@ class ShortcodesServiceProvider extends ServiceProvider
                 return '';
             }
 
-            return Livewire::mount($atts['component']);
+            return '<!--livewire-start-->'.Livewire::mount($atts['component']).'<!--livewire-end-->';
         });
 
         add_shortcode('uvalab_my_account', function () {
-            return Livewire::mount('customer.dashboard');
+            return '<!--livewire-start-->'.Livewire::mount('customer.dashboard').'<!--livewire-end-->';
+        });
+    }
+
+    private function disableAutopForLivewire(): void
+    {
+        add_filter('template_redirect', function () {
+            ob_start(function (string $html) {
+                return preg_replace_callback(
+                    '/<!--livewire-start-->(.+?)<!--livewire-end-->/s',
+                    function ($matches) {
+                        $output = $matches[1];
+                        $output = str_replace(['<p>', '</p>'], '', $output);
+                        $output = preg_replace('/<br\s*\/?>/', '', $output);
+
+                        return $output;
+                    },
+                    $html
+                );
+            });
         });
     }
 }
