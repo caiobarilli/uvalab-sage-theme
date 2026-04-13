@@ -4,6 +4,8 @@
 
 @import './components/categories.css';
 
+@import './components/filter.css';
+
 @import './components/products.css';
 
 @import './components/footer.css';

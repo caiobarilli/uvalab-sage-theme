@@ -4,7 +4,9 @@
 
 .products-section__row {
   display: flex !important;
-  flex-wrap: nowrap !important;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
   gap: 2rem;
   @apply w-full max-w-[var(--wp--style--global--content-size)] mx-auto;
 }

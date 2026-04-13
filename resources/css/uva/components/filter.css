@@ -1,0 +1,68 @@
+.filter-products__group {
+  @apply mb-6;
+}
+
+.filter-products__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1C1C;
+  @apply m-0 pb-2;
+}
+
+.filter-products__divider {
+  @apply border-0 border-b border-gray m-0 mb-3;
+}
+
+.filter-products__list {
+  @apply list-none m-0 p-0 flex flex-col gap-2;
+}
+
+.filter-products__item {
+  @apply m-0 p-0;
+}
+
+.filter-products__label {
+  @apply flex items-center gap-2 cursor-pointer text-sm;
+  color: #1A1C1C;
+}
+
+.filter-products__checkbox {
+  @apply w-4 h-4 cursor-pointer;
+  accent-color: #722F37;
+}
+
+.filter-products__price {
+  @apply flex items-center gap-2;
+}
+
+.filter-products__price-input {
+  @apply w-full border border-gray px-3 py-2 text-sm;
+  color: #1A1C1C;
+}
+
+.filter-products__price-input::placeholder {
+  color: #867273;
+}
+
+.filter-products__price-sep {
+  @apply text-sm;
+  color: #867273;
+}
+
+.filter-products__price-btn {
+  @apply px-4 py-2 text-sm text-white cursor-pointer border-0 whitespace-nowrap transition-colors;
+  background-color: #722F37;
+}
+
+.filter-products__price-btn:hover {
+  background-color: #561922;
+}
+
+.filter-products__clear {
+  @apply mt-4 text-sm cursor-pointer bg-transparent border-0 p-0 underline transition-colors;
+  color: #722F37;
+}
+
+.filter-products__clear:hover {
+  color: #561922;
+}

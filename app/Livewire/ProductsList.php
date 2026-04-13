@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ProductsList extends Component
@@ -10,14 +11,64 @@ class ProductsList extends Component
 
     public int $currentPage = 1;
 
+    public array $selectedSubcategories = [];
+
+    public string $minPrice = '';
+
+    public string $maxPrice = '';
+
+    #[On('filters-updated')]
+    public function applyFilters(array $filters): void
+    {
+        $this->selectedSubcategories = $filters['subcategories'] ?? [];
+        $this->minPrice = $filters['minPrice'] ?? '';
+        $this->maxPrice = $filters['maxPrice'] ?? '';
+        $this->currentPage = 1;
+    }
+
     public function render()
     {
-        $query = new \WP_Query([
+        $args = [
             'post_type' => 'product',
             'posts_per_page' => $this->perPage,
             'paged' => $this->currentPage,
             'post_status' => 'publish',
-        ]);
+        ];
+
+        if (! empty($this->selectedSubcategories)) {
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id',
+                    'terms' => $this->selectedSubcategories,
+                    'operator' => 'IN',
+                ],
+            ];
+        }
+
+        if ($this->minPrice !== '' || $this->maxPrice !== '') {
+            $args['meta_query'] = ['relation' => 'AND'];
+
+            if ($this->minPrice !== '') {
+                $args['meta_query'][] = [
+                    'key' => '_price',
+                    'value' => (float) $this->minPrice,
+                    'compare' => '>=',
+                    'type' => 'NUMERIC',
+                ];
+            }
+
+            if ($this->maxPrice !== '') {
+                $args['meta_query'][] = [
+                    'key' => '_price',
+                    'value' => (float) $this->maxPrice,
+                    'compare' => '<=',
+                    'type' => 'NUMERIC',
+                ];
+            }
+        }
+
+        $query = new \WP_Query($args);
 
         $products = array_map(function ($post) {
             $product = wc_get_product($post->ID);
