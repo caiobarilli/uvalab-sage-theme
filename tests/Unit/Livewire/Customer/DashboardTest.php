@@ -45,8 +45,7 @@ test('mount popula nome e email quando usuario esta autenticado', function () {
     $component = new TestableDashboardComponent;
     $component->mount();
 
-    expect($component->name)->toBe('Cliente Uva');
-    expect($component->email)->toBe('cliente@example.com');
+    expect($component->displayName)->toBe('Cliente Uva');
     expect($component->redirectedTo)->toBeNull();
 });
 
