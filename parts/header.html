@@ -1,18 +1,24 @@
-<!-- wp:group {"className":"site-header__row","align":"full","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
-<div class="wp-block-group alignfull site-header__row">
+<!-- wp:group {"className":"site-header__background","backgroundColor":"background","layout":{"type":"default"}} -->
+<div class="wp-block-group site-header__background has-background-background-color has-background">
 
-  <!-- wp:group {"className":"site-header__brand","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-  <div class="wp-block-group site-header__brand">
-    <!-- wp:site-logo {"width":40} /-->
-    <!-- wp:site-title {"level":0} /-->
+  <!-- wp:group {"className":"site-header__row","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
+  <div class="wp-block-group site-header__row">
+
+    <!-- wp:group {"className":"site-header__brand","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+    <div class="wp-block-group site-header__brand">
+      <!-- wp:site-logo {"width":40} /-->
+      <!-- wp:site-title {"level":0} /-->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:navigation {"className":"site-header__nav","overlayMenu":"never"} /-->
+
+    <!-- wp:shortcode -->
+    [livewire component="shop-menu"]
+    <!-- /wp:shortcode -->
+
   </div>
   <!-- /wp:group -->
-
-  <!-- wp:navigation {"className":"site-header__nav","overlayMenu":"never"} /-->
-
-  <!-- wp:shortcode -->
-  [livewire component="shop-menu"]
-  <!-- /wp:shortcode -->
 
 </div>
 <!-- /wp:group -->

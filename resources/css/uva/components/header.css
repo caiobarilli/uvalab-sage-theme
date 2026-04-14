@@ -1,9 +1,13 @@
 .site-header {
-  @apply bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between gap-8 relative;
+  @apply border-b border-gray-200 flex items-center justify-between gap-8 relative;
+}
+
+.site-header__background {
+  @apply w-full;
 }
 
 .site-header__row {
-  @apply flex items-center justify-between gap-8 w-full max-w-[var(--wp--style--global--content-size)] mx-auto;
+  @apply flex items-center justify-between gap-8 w-full max-w-[var(--wp--style--global--content-size)] mx-auto my-4;
 }
 
 .site-header__brand {
