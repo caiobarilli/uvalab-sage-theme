@@ -20,10 +20,24 @@ use Roots\Acorn\Application;
 */
 
 if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
-    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
+    wp_die('Error locating autoloader. Please run <code>composer install</code>.');
 }
 
 require $composer;
+
+/*
+|--------------------------------------------------------------------------
+| Check for Built Assets
+|--------------------------------------------------------------------------
+*/
+
+add_action('admin_notices', function () {
+    if (! file_exists(__DIR__.'/public/build/manifest.json')) {
+        echo '<div class="notice notice-error"><p>';
+        echo __('⚠️ <strong>Uvalab Sage Theme</strong> requires built assets to run. Please run <code>npm install && npm run build</code> in the theme directory.', 'sage');
+        echo '</p></div>';
+    }
+});
 
 /*
 |--------------------------------------------------------------------------
