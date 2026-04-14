@@ -405,6 +405,15 @@ wp acorn optimize:clear
 - The `api` prefix is added automatically by Acorn — do not use `Route::prefix('api')` in `routes/api.php`.
 - Always use `__DIR__` to reference files inside the theme — `base_path()` points to Bedrock root.
 - `Flux::toast()` requires Flux UI Pro.
+- WordPress functions are supported via `wordpress-stubs` and WooCommerce via `woocommerce-stubs` for PHPStan.
+- Some dynamic APIs (e.g. Flux UI) may require stubs or targeted ignores in `phpstan.neon`.
+- Tests are designed to run without full WordPress boot — avoid relying on WordPress global functions unless properly mocked.
+- The theme disables `woocommerce_store_pages_only` and `woocommerce_private_link` via `pre_option_*` filters in `setup.php` to prevent redirect loops when coming soon mode is enabled.
+- The default WooCommerce `[woocommerce_my_account]` shortcode must be replaced with `[uvalab_my_account]` on the My Account page.
+- The `ShortcodesServiceProvider` wraps Livewire output in comment markers and strips `wpautop` artifacts (`<p>`, `<br>`) to prevent layout breakage.
+- The admin panel (`/uvalab-admin`) runs inside an iframe in `wp-admin` — the `admin.blade.php` layout uses `ResizeObserver` + `postMessage` to sync height with the parent frame.
+- `CustomerMiddleware` is executed on every request via `ThemeServiceProvider::boot()` — it hooks into `admin_init` to block `subscriber` role from `wp-admin`.
+- Pre-push hooks run PHPStan, Pest and Vite build — if any step fails, the push is aborted.
 
 ---
 
