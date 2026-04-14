@@ -9,6 +9,8 @@ class AdminMenuServiceProvider extends ServiceProvider
     public function boot(): void
     {
         add_action('admin_menu', function () {
+            global $submenu;
+
             add_menu_page(
                 'UvaLab',
                 'UvaLab',
@@ -30,14 +32,17 @@ class AdminMenuServiceProvider extends ServiceProvider
                 '__return_null'
             );
 
-            add_submenu_page(
-                'uvalab-options',
-                'Hero Slides',
-                'Hero Slides',
+            $submenu['uvalab-options'][] = [
+                __('Navigations', 'sage'),
+                'manage_options',
+                'edit.php?post_type=wp_navigation',
+            ];
+
+            $submenu['uvalab-options'][] = [
+                __('Hero Slides', 'sage'),
                 'manage_options',
                 'edit.php?post_type=hero_slide',
-                '__return_null'
-            );
+            ];
         });
 
         add_action('admin_head', function () {
