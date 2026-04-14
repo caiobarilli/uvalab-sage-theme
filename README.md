@@ -139,16 +139,45 @@ Access at: `http://localhost:8080/wp-admin/admin.php?page=uvalab-options`
 
 ## Authentication
 
+## Authentication
+
 The theme includes a custom authentication system built with Livewire and Flux UI, replacing the default WooCommerce My Account page.
 
-### Routes
+### Auth Routes
 
-| Route         | Description                         |
-| ------------- | ----------------------------------- |
-| `/login`      | Customer login                      |
-| `/register`   | Customer registration               |
-| `/logout`     | Ends the session                    |
-| `/my-account` | Customer dashboard (requires login) |
+| Route       | Component  | Description           |
+| ----------- | ---------- | --------------------- |
+| `/login`    | `Login`    | Customer login        |
+| `/register` | `Register` | Customer registration |
+| `/logout`   | —          | Ends the session      |
+
+### Customer Routes
+
+The customer area base path is resolved dynamically from `wc_get_page_permalink('myaccount')`, falling back to `/my-account`.
+
+| Route                            | Component     | Description          |
+| -------------------------------- | ------------- | -------------------- |
+| `{base}`                         | `Dashboard`   | Customer dashboard   |
+| `{base}/orders`                  | `Orders`      | Order history        |
+| `{base}/view-order/{orderId}`    | `ViewOrder`   | Single order details |
+| `{base}/downloads`               | `Downloads`   | Digital downloads    |
+| `{base}/edit-address`            | `EditAddress`  | Address management   |
+| `{base}/edit-account`            | `EditAccount`  | Account settings     |
+
+### Customer Layout
+
+The customer area uses `layouts/app.blade.php` with a Flux UI collapsible sidebar:
+
+| Icon                             | Label           | Route                    |
+| -------------------------------- | --------------- | ------------------------ |
+| `home`                           | Dashboard       | `customer.account`       |
+| `shopping-bag`                   | Orders          | `customer.orders`        |
+| `arrow-down-tray`               | Downloads       | `customer.downloads`     |
+| `map-pin`                        | Addresses       | `customer.edit-address`  |
+| `user-circle`                    | Account details | `customer.edit-account`  |
+| `arrow-right-start-on-rectangle` | Log out         | `auth.logout`            |
+
+The layout includes the FSE header (`@blockpart('header')`) and footer (`@blockpart('footer')`), and constrains content width to `--wp--style--global--content-size`.
 
 ### WooCommerce My Account
 
