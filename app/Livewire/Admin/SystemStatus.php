@@ -25,23 +25,31 @@ class SystemStatus extends Component
     public function mount(): void
     {
         $this->wooInstalled = function_exists('WC');
+
         $this->wooVersion = $this->wooInstalled ? WC()->version : '';
+
+        $this->permalinkOk = get_option('permalink_structure') === '/%postname%/';
+
+        if (! $this->wooInstalled) {
+            return;
+        }
+
         $this->comingSoon = get_option('woocommerce_coming_soon') === 'yes';
 
-        if ($this->wooInstalled) {
-            $counts = wp_count_posts('product');
-            $this->productCount = (int) ($counts->publish ?? 0);
-        }
+        $counts = wp_count_posts('product');
+
+        $this->productCount = (int) ($counts->publish ?? 0);
 
         $this->myaccountPageId = get_option('woocommerce_myaccount_page_id') ?: null;
 
         if ($this->myaccountPageId) {
+
             $page = get_post($this->myaccountPageId);
+
             $this->myaccountTitle = $page?->post_title;
+
             $this->myaccountContent = $page?->post_content;
         }
-
-        $this->permalinkOk = get_option('permalink_structure') === '/%postname%/';
     }
 
     public function render()
