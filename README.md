@@ -397,6 +397,75 @@ wp acorn optimize:clear
 
 ---
 
+## Architecture Summary
+
+### Providers
+
+- **ThemeServiceProvider** — Extende `SageServiceProvider`, executa `CustomerMiddleware` no boot
+- **AdminMenuServiceProvider** — Registra menu "UvaLab" no wp-admin com iframe apontando para `/uvalab-admin`, submenu "Hero Slides" linkando para `edit.php?post_type=hero_slide`, JS para sincronizar altura do iframe
+- **PostTypesServiceProvider** — Registra CPT `hero_slide` (não público, com UI, sem menu, com REST, suporta title/editor/thumbnail/page-attributes)
+- **ShortcodesServiceProvider** — Shortcode `[livewire component="..."]` genérico, shortcode `[uvalab_my_account]` que monta o `customer.dashboard`, processa shortcodes em blocos core, limpa `<p>/<br>` do wpautop em volta do Livewire
+- **LivewireAssetsServiceProvider** — Injeta scripts do Livewire no `wp_footer`
+
+### Controllers
+
+- **ThemeOptionsController** — Protege rotas admin com `current_user_can('manage_options')`, renderiza views `admin.theme-options` e `admin.sliders.hero`
+- **ComingSoonController** — Renderiza view `coming-soon`
+
+### Middleware
+
+- **CustomerMiddleware** — No `admin_init`, redireciona `subscriber` para a página My Account do WooCommerce (bloqueia acesso ao wp-admin)
+
+### Livewire — Auth
+
+- **Login** — `wp_signon` + `wp_set_auth_cookie`, redireciona para My Account, layout `auth`
+- **Register** — `wp_create_user` com role `subscriber`, valida username/email duplicado, redireciona para My Account, layout `auth`
+
+### Livewire — Customer
+
+- **Dashboard** — Verifica login, exibe `displayName` do usuário
+
+### Livewire — Shop
+
+- **ProductsList** — Lista produtos WooCommerce com paginação, escuta evento `filters-updated` do `FilterProducts`, suporta filtro por subcategorias e faixa de preço
+- **FilterProducts** — Busca categorias pai e subcategorias de `product_cat`, dispatcha evento `filters-updated` com subcategorias e preço
+- **ShopMenu** — Exibe contagem de itens no carrinho WooCommerce
+- **Quote** — Componente simples com frase estática
+
+### Livewire — Slider
+
+- **Slider** — Busca posts `hero_slide` ordenados por `menu_order`, monta array de slides com title/content
+
+### Livewire — Admin
+
+- **HeroSlider** — Lista slides (publish + draft), modal de confirmação para deletar com Flux toast notifications
+- **SystemStatus** — Exibe status: WooCommerce instalado/versão, coming soon ativo, página My Account configurada, permalink OK, contagem de produtos
+- **AcornCache** — Executa `wp acorn optimize:clear` via shell
+- **Seeder** — Executa `wp acorn db:seed` via shell
+
+### Config / Setup
+
+- **setup.php** — Menus (primary/footer), sidebars, theme supports (thumbnails, html5, responsive-embeds), injeta editor CSS/JS via Vite, desabilita `woocommerce_store_pages_only` e `woocommerce_private_link` para evitar loops de redirect
+- **filters.php** — Excerpt "Continued", redirect para `/coming-soon` quando `woocommerce_coming_soon === 'yes'` e usuário não é admin
+- **composer.json** — PHP ≥8.2, deps: `livewire/flux ^2.13`, `livewire/livewire ^4.2`, `roots/acorn ^5.1`, `roots/acorn-fse-helper ^1.0`; dev: larastan, pint, pest, WP/WC stubs
+- **config/fse.php** — Vite asset injection habilitado para FSE
+- **config/livewire.php** — Layout padrão `layouts::app`, namespace `App\Livewire`, inject_assets true, pagination tailwind
+- **theme.json** — Versão 3, contentSize 68rem, paleta customizada (primary `#561922`, tons wine/bordeaux), fonte Roboto (300-900)
+- **vite.config.js** — Vite 8 + Tailwind CSS 4 plugin + laravel-vite-plugin + @roots/vite-plugin, HMR em localhost:5173, aliases @scripts/@styles/@fonts/@images
+
+### Layouts
+
+- **app.blade.php** — Layout cliente com sidebar Flux UI (Dashboard, Orders, Downloads, Addresses, Account details, Logout)
+- **admin.blade.php** — Layout admin iframe com sidebar Flux UI (Theme, Hero Slides), script de ResizeObserver para ajuste de altura do iframe
+- **auth.blade.php** — Layout split-screen: formulário à esquerda, imagem de fundo + quote do Caleb Porzio à direita
+
+### Seeders
+
+- **DatabaseSeeder** — Chama `HeroSlideSeeder`
+- **HeroSlideSeeder** — Insere 3 hero slides com blocos Gutenberg (layout com subtitle, title, description, CTA button e imagem placeholder)
+
+---
+
 ## Notes
 
 - WooCommerce must be set to **Live** mode to avoid breaking store pages. Go to **WooCommerce > Settings > Site visibility** and set it to **Live**.
