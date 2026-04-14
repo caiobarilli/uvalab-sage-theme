@@ -139,8 +139,6 @@ Access at: `http://localhost:8080/wp-admin/admin.php?page=uvalab-options`
 
 ## Authentication
 
-## Authentication
-
 The theme includes a custom authentication system built with Livewire and Flux UI, replacing the default WooCommerce My Account page.
 
 ### Auth Routes
