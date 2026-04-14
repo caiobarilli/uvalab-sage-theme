@@ -401,68 +401,68 @@ wp acorn optimize:clear
 
 ### Providers
 
-- **ThemeServiceProvider** — Extende `SageServiceProvider`, executa `CustomerMiddleware` no boot
-- **AdminMenuServiceProvider** — Registra menu "UvaLab" no wp-admin com iframe apontando para `/uvalab-admin`, submenu "Hero Slides" linkando para `edit.php?post_type=hero_slide`, JS para sincronizar altura do iframe
-- **PostTypesServiceProvider** — Registra CPT `hero_slide` (não público, com UI, sem menu, com REST, suporta title/editor/thumbnail/page-attributes)
-- **ShortcodesServiceProvider** — Shortcode `[livewire component="..."]` genérico, shortcode `[uvalab_my_account]` que monta o `customer.dashboard`, processa shortcodes em blocos core, limpa `<p>/<br>` do wpautop em volta do Livewire
-- **LivewireAssetsServiceProvider** — Injeta scripts do Livewire no `wp_footer`
+- **ThemeServiceProvider** — Extends `SageServiceProvider`, executes `CustomerMiddleware` on boot
+- **AdminMenuServiceProvider** — Registers "UvaLab" menu in wp-admin with iframe pointing to `/uvalab-admin`, "Hero Slides" submenu linking to `edit.php?post_type=hero_slide`, JS to sync iframe height
+- **PostTypesServiceProvider** — Registers CPT `hero_slide` (non-public, with UI, no menu, REST enabled, supports title/editor/thumbnail/page-attributes)
+- **ShortcodesServiceProvider** — Generic `[livewire component="..."]` shortcode, `[uvalab_my_account]` shortcode that mounts `customer.dashboard`, processes shortcodes in core blocks, strips `<p>/<br>` from wpautop around Livewire output
+- **LivewireAssetsServiceProvider** — Injects Livewire scripts in `wp_footer`
 
 ### Controllers
 
-- **ThemeOptionsController** — Protege rotas admin com `current_user_can('manage_options')`, renderiza views `admin.theme-options` e `admin.sliders.hero`
-- **ComingSoonController** — Renderiza view `coming-soon`
+- **ThemeOptionsController** — Protects admin routes with `current_user_can('manage_options')`, renders views `admin.theme-options` and `admin.sliders.hero`
+- **ComingSoonController** — Renders `coming-soon` view
 
 ### Middleware
 
-- **CustomerMiddleware** — No `admin_init`, redireciona `subscriber` para a página My Account do WooCommerce (bloqueia acesso ao wp-admin)
+- **CustomerMiddleware** — On `admin_init`, redirects `subscriber` role to the WooCommerce My Account page (blocks wp-admin access)
 
 ### Livewire — Auth
 
-- **Login** — `wp_signon` + `wp_set_auth_cookie`, redireciona para My Account, layout `auth`
-- **Register** — `wp_create_user` com role `subscriber`, valida username/email duplicado, redireciona para My Account, layout `auth`
+- **Login** — `wp_signon` + `wp_set_auth_cookie`, redirects to My Account, uses `auth` layout
+- **Register** — `wp_create_user` with `subscriber` role, validates duplicate username/email, redirects to My Account, uses `auth` layout
 
 ### Livewire — Customer
 
-- **Dashboard** — Verifica login, exibe `displayName` do usuário
+- **Dashboard** — Checks login status, displays user `displayName`
 
 ### Livewire — Shop
 
-- **ProductsList** — Lista produtos WooCommerce com paginação, escuta evento `filters-updated` do `FilterProducts`, suporta filtro por subcategorias e faixa de preço
-- **FilterProducts** — Busca categorias pai e subcategorias de `product_cat`, dispatcha evento `filters-updated` com subcategorias e preço
-- **ShopMenu** — Exibe contagem de itens no carrinho WooCommerce
-- **Quote** — Componente simples com frase estática
+- **ProductsList** — Lists WooCommerce products with pagination, listens to `filters-updated` event from `FilterProducts`, supports subcategory and price range filtering
+- **FilterProducts** — Fetches parent categories and subcategories from `product_cat`, dispatches `filters-updated` event with subcategories and price
+- **ShopMenu** — Displays WooCommerce cart item count
+- **Quote** — Simple component with a static quote string
 
 ### Livewire — Slider
 
-- **Slider** — Busca posts `hero_slide` ordenados por `menu_order`, monta array de slides com title/content
+- **Slider** — Fetches `hero_slide` posts ordered by `menu_order`, builds slides array with title/content
 
 ### Livewire — Admin
 
-- **HeroSlider** — Lista slides (publish + draft), modal de confirmação para deletar com Flux toast notifications
-- **SystemStatus** — Exibe status: WooCommerce instalado/versão, coming soon ativo, página My Account configurada, permalink OK, contagem de produtos
-- **AcornCache** — Executa `wp acorn optimize:clear` via shell
-- **Seeder** — Executa `wp acorn db:seed` via shell
+- **HeroSlider** — Lists slides (publish + draft), delete confirmation modal with Flux toast notifications
+- **SystemStatus** — Displays status: WooCommerce installed/version, coming soon active, My Account page configured, permalink OK, product count
+- **AcornCache** — Runs `wp acorn optimize:clear` via shell
+- **Seeder** — Runs `wp acorn db:seed` via shell
 
 ### Config / Setup
 
-- **setup.php** — Menus (primary/footer), sidebars, theme supports (thumbnails, html5, responsive-embeds), injeta editor CSS/JS via Vite, desabilita `woocommerce_store_pages_only` e `woocommerce_private_link` para evitar loops de redirect
-- **filters.php** — Excerpt "Continued", redirect para `/coming-soon` quando `woocommerce_coming_soon === 'yes'` e usuário não é admin
+- **setup.php** — Menus (primary/footer), sidebars, theme supports (thumbnails, html5, responsive-embeds), injects editor CSS/JS via Vite, disables `woocommerce_store_pages_only` and `woocommerce_private_link` to prevent redirect loops
+- **filters.php** — Excerpt "Continued" link, redirects to `/coming-soon` when `woocommerce_coming_soon === 'yes'` and user is not admin
 - **composer.json** — PHP ≥8.2, deps: `livewire/flux ^2.13`, `livewire/livewire ^4.2`, `roots/acorn ^5.1`, `roots/acorn-fse-helper ^1.0`; dev: larastan, pint, pest, WP/WC stubs
-- **config/fse.php** — Vite asset injection habilitado para FSE
-- **config/livewire.php** — Layout padrão `layouts::app`, namespace `App\Livewire`, inject_assets true, pagination tailwind
-- **theme.json** — Versão 3, contentSize 68rem, paleta customizada (primary `#561922`, tons wine/bordeaux), fonte Roboto (300-900)
-- **vite.config.js** — Vite 8 + Tailwind CSS 4 plugin + laravel-vite-plugin + @roots/vite-plugin, HMR em localhost:5173, aliases @scripts/@styles/@fonts/@images
+- **config/fse.php** — Vite asset injection enabled for FSE
+- **config/livewire.php** — Default layout `layouts::app`, namespace `App\Livewire`, inject_assets true, tailwind pagination
+- **theme.json** — Version 3, contentSize 68rem, custom palette (primary `#561922`, wine/bordeaux tones), Roboto font (300-900)
+- **vite.config.js** — Vite 8 + Tailwind CSS 4 plugin + laravel-vite-plugin + @roots/vite-plugin, HMR on localhost:5173, aliases @scripts/@styles/@fonts/@images
 
 ### Layouts
 
-- **app.blade.php** — Layout cliente com sidebar Flux UI (Dashboard, Orders, Downloads, Addresses, Account details, Logout)
-- **admin.blade.php** — Layout admin iframe com sidebar Flux UI (Theme, Hero Slides), script de ResizeObserver para ajuste de altura do iframe
-- **auth.blade.php** — Layout split-screen: formulário à esquerda, imagem de fundo + quote do Caleb Porzio à direita
+- **app.blade.php** — Customer layout with Flux UI sidebar (Dashboard, Orders, Downloads, Addresses, Account details, Logout)
+- **admin.blade.php** — Admin iframe layout with Flux UI sidebar (Theme, Hero Slides), ResizeObserver script for iframe height sync
+- **auth.blade.php** — Split-screen layout: form on the left, background image + Caleb Porzio quote on the right
 
 ### Seeders
 
-- **DatabaseSeeder** — Chama `HeroSlideSeeder`
-- **HeroSlideSeeder** — Insere 3 hero slides com blocos Gutenberg (layout com subtitle, title, description, CTA button e imagem placeholder)
+- **DatabaseSeeder** — Calls `HeroSlideSeeder`
+- **HeroSlideSeeder** — Inserts 3 hero slides with Gutenberg blocks (layout with subtitle, title, description, CTA button and placeholder image)
 
 ---
 
