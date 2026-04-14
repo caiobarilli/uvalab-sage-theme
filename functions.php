@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\AdminCleanupServiceProvider;
 use App\Providers\AdminMenuServiceProvider;
 use App\Providers\LivewireAssetsServiceProvider;
 use App\Providers\PostTypesServiceProvider;
@@ -61,6 +62,7 @@ Application::configure()
         PostTypesServiceProvider::class,
         ShortcodesServiceProvider::class,
         LivewireAssetsServiceProvider::class,
+        AdminCleanupServiceProvider::class,
     ])
     ->withRouting(
         wordpress: true,

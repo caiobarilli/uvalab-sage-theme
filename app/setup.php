@@ -83,10 +83,10 @@ add_action('after_setup_theme', function () {
      *
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
-    register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
-        'footer_navigation' => __('Footer Navigation', 'sage'),
-    ]);
+    // register_nav_menus([
+    //     'primary_navigation' => __('Primary Navigation', 'sage'),
+    //     'footer_navigation' => __('Footer Navigation', 'sage'),
+    // ]);
 
     /**
      * Disable the default block patterns.
@@ -136,7 +136,7 @@ add_action('after_setup_theme', function () {
      *
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
-    add_theme_support('customize-selective-refresh-widgets');
+    // add_theme_support('customize-selective-refresh-widgets');
 }, 20);
 
 /**
@@ -144,24 +144,24 @@ add_action('after_setup_theme', function () {
  *
  * @return void
  */
-add_action('widgets_init', function () {
-    $config = [
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    ];
+// add_action('widgets_init', function () {
+//     $config = [
+//         'before_widget' => '<section class="widget %1$s %2$s">',
+//         'after_widget' => '</section>',
+//         'before_title' => '<h3>',
+//         'after_title' => '</h3>',
+//     ];
 
-    register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id' => 'sidebar-primary',
-    ] + $config);
+//     register_sidebar([
+//         'name' => __('Primary', 'sage'),
+//         'id' => 'sidebar-primary',
+//     ] + $config);
 
-    register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id' => 'sidebar-footer',
-    ] + $config);
-});
+//     register_sidebar([
+//         'name' => __('Footer', 'sage'),
+//         'id' => 'sidebar-footer',
+//     ] + $config);
+// });
 
 /**
  * Denny WooCommerce store pages only and private link options to prevent redirect loops when the coming soon mode is enabled.
