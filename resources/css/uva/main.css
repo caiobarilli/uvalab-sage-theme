@@ -9,3 +9,7 @@
 @import './components/products.css';
 
 @import './components/footer.css';
+
+[data-flux-sidebar] a {
+    text-decoration: none;
+}

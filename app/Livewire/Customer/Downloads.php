@@ -4,9 +4,9 @@ namespace App\Livewire\Customer;
 
 use Livewire\Component;
 
-class Dashboard extends Component
+class Downloads extends Component
 {
-    public string $displayName = '';
+    public array $downloads = [];
 
     public function mount(): void
     {
@@ -16,12 +16,11 @@ class Dashboard extends Component
             return;
         }
 
-        $user = wp_get_current_user();
-        $this->displayName = $user->display_name;
+        $this->downloads = wc_get_customer_available_downloads(get_current_user_id());
     }
 
     public function render()
     {
-        return view('livewire.customer.dashboard');
+        return view('livewire.customer.downloads');
     }
 }

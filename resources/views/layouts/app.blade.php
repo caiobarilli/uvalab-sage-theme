@@ -18,8 +18,51 @@
     </header>
 
     <main class="wp-block-group">
-        @yield('content')
-        {{ $slot ?? '' }}
+        <div class="my-4 flex mx-auto max-w-[var(--wp--style--global--content-size)]">
+            <flux:sidebar sticky collapsible class="bg-white border-r border-zinc-200">
+                <flux:sidebar.header>
+                    <flux:sidebar.brand href="{{ route('customer.account') }}"
+                        logo="{{ Vite::asset('resources/images/uva-logo.png') }}" name="UvaLab." />
+                    <flux:sidebar.collapse
+                        class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />
+                </flux:sidebar.header>
+
+                <flux:sidebar.nav>
+                    <flux:sidebar.item icon="home" href="{{ route('customer.account') }}">
+                        {{ __('Dashboard', 'sage') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="shopping-bag" href="{{ route('customer.orders') }}">
+                        {{ __('Orders', 'sage') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="arrow-down-tray" href="{{ route('customer.downloads') }}">
+                        {{ __('Downloads', 'sage') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="map-pin" href="{{ route('customer.edit-address') }}">
+                        {{ __('Addresses', 'sage') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="user-circle" href="{{ route('customer.edit-account') }}">
+                        {{ __('Account details', 'sage') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item icon="arrow-right-start-on-rectangle" href="{{ route('auth.logout') }}">
+                        {{ __('Log out', 'sage') }}
+                    </flux:sidebar.item>
+                </flux:sidebar.nav>
+            </flux:sidebar>
+
+            <flux:header class="lg:hidden">
+                <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+                <flux:spacer />
+            </flux:header>
+
+            <div class="ml-4">
+                {{ $slot }}
+            </div>
+        </div>
     </main>
 
     @blockpart('footer')

@@ -5,6 +5,12 @@ use App\Http\Controllers\ComingSoonController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Customer\Dashboard;
+use App\Livewire\Customer\Downloads;
+use App\Livewire\Customer\EditAccount;
+use App\Livewire\Customer\EditAddress;
+use App\Livewire\Customer\Orders;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/coming-soon', [ComingSoonController::class, 'index'])->name('coming-soon');
 
@@ -22,17 +28,20 @@ Route::group(['as' => 'auth.'], function () {
     Route::get('/logout', function () {
         wp_logout();
 
-        return redirect('/login');
+        return Redirect::to('/login');
     })->name('logout');
 });
 
 Route::group(['as' => 'customer.'], function () {
+    $base = '/my-account';
+
     if (function_exists('wc_get_page_permalink')) {
-        Route::get(
-            parse_url(wc_get_page_permalink('myaccount'), PHP_URL_PATH),
-            Dashboard::class
-        )->name('account');
-    } else {
-        Route::get('/my-account', Dashboard::class)->name('account');
+        $base = rtrim(parse_url(wc_get_page_permalink('myaccount'), PHP_URL_PATH), '/');
     }
+
+    Route::get($base, Dashboard::class)->name('account');
+    Route::get($base.'/orders', Orders::class)->name('orders');
+    Route::get($base.'/downloads', Downloads::class)->name('downloads');
+    Route::get($base.'/edit-address', EditAddress::class)->name('edit-address');
+    Route::get($base.'/edit-account', EditAccount::class)->name('edit-account');
 });
