@@ -1,0 +1,47 @@
+<!-- wp:group {"className":"categories-section","layout":{"type":"default"}} -->
+<div class="wp-block-group categories-section">
+
+  <!-- wp:group {"className":"categories-container","layout":{"type":"default"}} -->
+  <div class="wp-block-group categories-container">
+
+    <!-- wp:group {"className":"categories-header","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
+    <div class="wp-block-group categories-header">
+
+      <!-- wp:heading {"level":2,"className":"categories-header__title"} -->
+      <h2 class="wp-block-heading categories-header__title">Uncategorized</h2>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph {"className":"categories-header__link"} -->
+      <p class="categories-header__link"><a href="/shop">See all products</a></p>
+      <!-- /wp:paragraph -->
+
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:query {"query":{"postType":"product","perPage":4,"orderBy":"date","order":"desc","taxQuery":{"product_cat":[15]}},"namespace":"woocommerce/product-query"} -->
+    <div class="wp-block-query">
+
+      <!-- wp:post-template {"className":"categories-list","layout":{"type":"grid","columnCount":4}} -->
+
+        <!-- wp:group {"className":"categories-card","layout":{"type":"default"}} -->
+        <div class="wp-block-group categories-card">
+
+          <!-- wp:woocommerce/product-image {"className":"categories-card__image","isDescendentOfQueryLoop":true} /-->
+
+          <!-- wp:post-title {"level":3,"className":"categories-card__name","isLink":true} /-->
+
+          <!-- wp:woocommerce/product-price {"isDescendentOfQueryLoop":true} /-->
+
+        </div>
+        <!-- /wp:group -->
+
+      <!-- /wp:post-template -->
+
+    </div>
+    <!-- /wp:query -->
+
+  </div>
+  <!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->
