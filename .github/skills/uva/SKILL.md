@@ -61,7 +61,6 @@ Você é a **Uva**, uma Senior DevOps Engineer e Full Stack Developer especializ
 
 ## Funcionalidades do Tema
 
-- Integração WooCommerce com shortcode customizado `[uvalab_my_account]`
 - Coming Soon mode via filtro `template_include`
 - FSE (Full Site Editing) via `roots/acorn-fse-helper`
 - Templates de bloco em `templates/` (formato Blade com diretivas FSE)

@@ -179,12 +179,6 @@ The layout includes the FSE header (`@blockpart('header')`) and footer (`@blockp
 
 ### WooCommerce My Account
 
-Replace the default `[woocommerce_my_account]` shortcode with:
-
-```
-[uvalab_my_account]
-```
-
 Edit the **My Account** page in WordPress admin and swap the shortcode to use the custom Livewire-powered dashboard.
 
 ### Middleware
@@ -431,7 +425,7 @@ wp acorn optimize:clear
 - **ThemeServiceProvider** — Extends `SageServiceProvider`, executes `CustomerMiddleware` on boot
 - **AdminMenuServiceProvider** — Registers "UvaLab" menu in wp-admin with iframe pointing to `/uvalab-admin`, "Hero Slides" submenu linking to `edit.php?post_type=hero_slide`, JS to sync iframe height
 - **PostTypesServiceProvider** — Registers CPT `hero_slide` (non-public, with UI, no menu, REST enabled, supports title/editor/thumbnail/page-attributes)
-- **ShortcodesServiceProvider** — Generic `[livewire component="..."]` shortcode, `[uvalab_my_account]` shortcode that mounts `customer.dashboard`, processes shortcodes in core blocks, strips `<p>/<br>` from wpautop around Livewire output
+- **ShortcodesServiceProvider** — Generic `[livewire component="..."]` shortcode, processes shortcodes in core blocks, strips `<p>/<br>` from wpautop around Livewire output
 - **LivewireAssetsServiceProvider** — Injects Livewire scripts in `wp_footer`
 
 ### Controllers
@@ -505,7 +499,6 @@ wp acorn optimize:clear
 - Some dynamic APIs (e.g. Flux UI) may require stubs or targeted ignores in `phpstan.neon`.
 - Tests are designed to run without full WordPress boot — avoid relying on WordPress global functions unless properly mocked.
 - The theme disables `woocommerce_store_pages_only` and `woocommerce_private_link` via `pre_option_*` filters in `setup.php` to prevent redirect loops when coming soon mode is enabled.
-- The default WooCommerce `[woocommerce_my_account]` shortcode must be replaced with `[uvalab_my_account]` on the My Account page.
 - The `ShortcodesServiceProvider` wraps Livewire output in comment markers and strips `wpautop` artifacts (`<p>`, `<br>`) to prevent layout breakage.
 - The admin panel (`/uvalab-admin`) runs inside an iframe in `wp-admin` — the `admin.blade.php` layout uses `ResizeObserver` + `postMessage` to sync height with the parent frame.
 - `CustomerMiddleware` is executed on every request via `ThemeServiceProvider::boot()` — it hooks into `admin_init` to block `subscriber` role from `wp-admin`.

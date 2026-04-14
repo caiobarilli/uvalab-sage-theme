@@ -25,10 +25,6 @@ class ShortcodesServiceProvider extends ServiceProvider
 
             return '<!--livewire-start-->'.Livewire::mount($atts['component']).'<!--livewire-end-->';
         });
-
-        add_shortcode('uvalab_my_account', function () {
-            return '<!--livewire-start-->'.Livewire::mount('customer.dashboard').'<!--livewire-end-->';
-        });
     }
 
     private function processShortcodesInBlocks(): void

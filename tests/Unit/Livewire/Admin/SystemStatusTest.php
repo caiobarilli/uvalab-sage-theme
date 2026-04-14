@@ -62,7 +62,6 @@ test('mount preenche dados completos com woocommerce', function () {
 
     $page = new stdClass;
     $page->post_title = 'Minha Conta';
-    $page->post_content = '[uvalab_my_account]';
 
     Functions\expect('get_post')
         ->once()
@@ -77,7 +76,6 @@ test('mount preenche dados completos com woocommerce', function () {
     expect($component->comingSoon)->toBeTrue();
     expect($component->myaccountPageId)->toBe(12);
     expect($component->myaccountTitle)->toBe('Minha Conta');
-    expect($component->myaccountContent)->toBe('[uvalab_my_account]');
     expect($component->permalinkOk)->toBeTrue();
     expect($component->productCount)->toBe(5);
 });
