@@ -9,6 +9,7 @@ use App\Livewire\Customer\Downloads;
 use App\Livewire\Customer\EditAccount;
 use App\Livewire\Customer\EditAddress;
 use App\Livewire\Customer\Orders;
+use App\Livewire\Customer\ViewOrder;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,7 @@ Route::group(['as' => 'customer.'], function () {
 
     Route::get($base, Dashboard::class)->name('account');
     Route::get($base.'/orders', Orders::class)->name('orders');
+    Route::get($base.'/view-order/{orderId}', ViewOrder::class)->name('view-order');
     Route::get($base.'/downloads', Downloads::class)->name('downloads');
     Route::get($base.'/edit-address', EditAddress::class)->name('edit-address');
     Route::get($base.'/edit-account', EditAccount::class)->name('edit-account');

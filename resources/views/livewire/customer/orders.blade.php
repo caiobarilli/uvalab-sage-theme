@@ -22,7 +22,8 @@
                     </flux:table.cell>
                     <flux:table.cell>{!! $order->get_formatted_order_total() !!}</flux:table.cell>
                     <flux:table.cell>
-                        <flux:button size="sm" variant="ghost" href="{{ $order->get_view_order_url() }}">
+                        <flux:button size="sm" variant="ghost"
+                            href="{{ route('customer.view-order', ['orderId' => $order->get_id()]) }}">
                             {{ __('View', 'sage') }}
                         </flux:button>
                     </flux:table.cell>
