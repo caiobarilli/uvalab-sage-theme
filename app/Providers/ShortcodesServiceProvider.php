@@ -10,6 +10,7 @@ class ShortcodesServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerShortcodes();
+        $this->processShortcodesInBlocks();
         $this->disableAutopForLivewire();
     }
 
@@ -28,6 +29,17 @@ class ShortcodesServiceProvider extends ServiceProvider
         add_shortcode('uvalab_my_account', function () {
             return '<!--livewire-start-->'.Livewire::mount('customer.dashboard').'<!--livewire-end-->';
         });
+    }
+
+    private function processShortcodesInBlocks(): void
+    {
+        add_filter('render_block', function (string $blockContent, array $block) {
+            if ($block['blockName'] === 'core/shortcode') {
+                return do_shortcode($blockContent);
+            }
+
+            return $blockContent;
+        }, 10, 2);
     }
 
     private function disableAutopForLivewire(): void

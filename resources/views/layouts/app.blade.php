@@ -13,30 +13,16 @@
 
 <body @php(body_class())>
     @php(wp_body_open())
+    <header class="site-header">
+        @blockpart('header')
+    </header>
 
-    <div id="app">
-        <a class="sr-only focus:not-sr-only" href="#main">
-            {{ __('Skip to content', 'sage') }}
-        </a>
+    <main class="wp-block-group">
+        @yield('content')
+        {{ $slot ?? '' }}
+    </main>
 
-        @include('sections.header')
-
-        <main id="main" class="main">
-            @if (is_user_logged_in())
-                <flux:button href="/logout" variant="primary" color="zinc">{{ __('Logout', 'sage') }}</flux:button>
-            @endif
-
-            @yield('content')
-        </main>
-
-        @hasSection('sidebar')
-            <aside class="sidebar">
-                @yield('sidebar')
-            </aside>
-        @endif
-
-        @include('sections.footer')
-    </div>
+    @blockpart('footer')
 
     @php(do_action('get_footer'))
     @php(wp_footer())
