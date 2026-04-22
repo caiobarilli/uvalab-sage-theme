@@ -485,9 +485,7 @@ wp acorn optimize:clear
 
 ## Notes
 
-- WooCommerce must be set to **Live** mode to avoid breaking store pages. Go to **WooCommerce > Settings > Site visibility** and set it to **Live**.
 - Always run `composer dump-autoload` after moving or creating PHP files.
-- `make:model` creates the file at `app/ModelName.php` — move to `app/Models/` manually if needed.
 - The `api` prefix is added automatically by Acorn — do not use `Route::prefix('api')` in `routes/api.php`.
 - Always use `__DIR__` to reference files inside the theme — `base_path()` points to Bedrock root.
 - `Flux::toast()` requires Flux UI Pro.
