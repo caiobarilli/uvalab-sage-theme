@@ -177,10 +177,6 @@ The customer area uses `layouts/app.blade.php` with a Flux UI collapsible sideba
 
 The layout includes the FSE header (`@blockpart('header')`) and footer (`@blockpart('footer')`), and constrains content width to `--wp--style--global--content-size`.
 
-### WooCommerce My Account
-
-Edit the **My Account** page in WordPress admin and swap the shortcode to use the custom Livewire-powered dashboard.
-
 ### Middleware
 
 `CustomerMiddleware` blocks users with the `subscriber` role from accessing `wp-admin`, redirecting them to the WooCommerce My Account page.
