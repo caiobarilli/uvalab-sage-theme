@@ -497,6 +497,11 @@ wp acorn optimize:clear
 - The admin panel (`/uvalab-admin`) runs inside an iframe in `wp-admin` — the `admin.blade.php` layout uses `ResizeObserver` + `postMessage` to sync height with the parent frame.
 - `CustomerMiddleware` is executed on every request via `ThemeServiceProvider::boot()` — it hooks into `admin_init` to block `subscriber` role from `wp-admin`.
 - Pre-push hooks run PHPStan, Pest and Vite build — if any step fails, the push is aborted.
+- Laravel Acorn assumes full compatibility with utf8mb4.
+- If the database is using utf8mb3, latin1, or outdated collations, migrations may fail or behave inconsistently.
+- Avoid using utf8mb3, latin1, or outdated collations such as utf8mb4_unicode_520_ci.
+- Always verify charset configuration before debugging migration or schema issues.
+- WP-CLI + Acorn run migrations directly through the MySQL/MariaDB connection, independent of WordPress charset settings.
 
 ---
 
