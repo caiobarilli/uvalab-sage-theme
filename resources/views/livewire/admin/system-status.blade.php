@@ -39,7 +39,7 @@
                             {{ __('Download sample_products.csv', 'sage') }}
                         </flux:button>
                         <flux:button
-                            href="http://localhost:8080/wp/wp-admin/edit.php?post_type=product&page=product_importer&wc_onboarding_active_task=products"
+                            href="{{ home_url('/wp/wp-admin/edit.php?post_type=product&page=product_importer&wc_onboarding_active_task=products') }}"
                             target="_parent">
                             {{ __('Import Products', 'sage') }}
                         </flux:button>
